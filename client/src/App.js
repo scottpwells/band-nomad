@@ -1,16 +1,26 @@
-import { useEffect } from "react";
-import axios from "axios";
-import CreateProfile from "./containers/CreateProfile/CreateProfile";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
+import Contact from "./containers/ContactPage/ContactPage";
+import Create from "./containers/CreateProfile/CreateProfile";
+import Login from "./containers/Login/Login";
+import Home from "./containers/Home/Home";
+import Profile from "./containers/Profile/Profile";
+import Update from "./containers/UpdateProfile/UpdateProfile";
 
 function App() {
-  // useEffect(() => {
-  //   axios.get("/api/config").then((response) => {
-  //     console.log(response.data);
-  //   });
-  // }, []);
   return (
     <div>
-<CreateProfile/>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/create" component={Create} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/login" component={Login} />
+          <Route path="/profile" component={Profile} />
+          <Route exact path="/update" component={Update} />
+        </Switch>
+      </Router>
     </div>
   );
 }
