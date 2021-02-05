@@ -6,6 +6,7 @@ import Login from "./containers/Login/Login";
 import Home from "./containers/Home/Home";
 import Profile from "./containers/Profile/Profile";
 import Update from "./containers/UpdateProfile/UpdateProfile";
+import Results from "./containers/SearchResults/SearchResults";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route path="/profile" component={Profile} />
           <Route exact path="/update" component={Update} />
+          <Route exact path="/results" component={Results} />
         </Switch>
       </Router>
     </div>

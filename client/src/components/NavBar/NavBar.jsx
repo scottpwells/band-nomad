@@ -49,6 +49,14 @@ const NavBar = () => {
               Update
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/results"
+              activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+            >
+              Results
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
