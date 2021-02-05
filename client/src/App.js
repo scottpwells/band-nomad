@@ -1,30 +1,26 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useEffect } from "react";
-import axios from "axios";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
+import Contact from "./containers/ContactPage/ContactPage";
+import Create from "./containers/CreateProfile/CreateProfile";
+import Login from "./containers/Login/Login";
+import Home from "./containers/Home/Home";
+import Profile from "./containers/Profile/Profile";
+import Update from "./containers/UpdateProfile/UpdateProfile";
 
 function App() {
-  useEffect(() => {
-    axios.get("/api/config").then((response) => {
-      console.log(response.data);
-    });
-  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/create" component={Create} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/login" component={Login} />
+          <Route path="/profile" component={Profile} />
+          <Route exact path="/update" component={Update} />
+        </Switch>
+      </Router>
     </div>
   );
 }
