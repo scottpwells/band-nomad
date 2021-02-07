@@ -3,9 +3,14 @@ const axios = require("axios").default;
 
 const SearchResults = () => {
   useEffect(() => {
-    axios.get("/api/musician").then(function (response) {
-      console.log(response);
-    });
+    axios
+      .get("/api/musician")
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   });
   return (
     <div>
