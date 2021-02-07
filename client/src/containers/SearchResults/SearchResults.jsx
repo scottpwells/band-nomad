@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 const axios = require("axios").default;
 
 const SearchResults = () => {
+  const [musicians, setMusicians] = useState([]);
   useEffect(() => {
     axios
       .get("/api/musician")
