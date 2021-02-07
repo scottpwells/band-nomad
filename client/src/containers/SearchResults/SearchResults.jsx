@@ -18,6 +18,14 @@ const SearchResults = () => {
   return (
     <div>
       <h1>This is the results page {musicians[0] ? musicians[0].name : ""}</h1>
+      <table>
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+          <th>Country</th>
+        </tr>
+      </table>
     </div>
   );
 };
