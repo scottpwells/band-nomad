@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const Product = require("../models/musician");
+const Profile = require("../models/musician");
 
 router.get("/", (req, res) => {
-  Product.find()
+  Profile.find()
     .then((profile) => {
       res.json(profile);
     })
@@ -15,9 +15,9 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   console.log(req.body);
-  Product.create(req.body).then((newMusician) => {
-    console.log(newMusician);
-    res.json(newMusician);
+  Profile.create(req.body).then((newProfile) => {
+    console.log(newProfile);
+    res.json(newProfile);
   });
 });
 

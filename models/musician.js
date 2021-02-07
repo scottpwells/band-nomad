@@ -8,12 +8,12 @@ const musicianSchema = new Schema({
     trim: true,
     required: "Enter your Name",
   },
-  contactNote: {
+  contact: {
     type: String,
     trim: true,
     required: "Enter a contact note",
   },
-  phoneNumber: {
+  phone: {
     type: Number,
     trim: true,
     required: "Enter a phone number",
@@ -27,7 +27,7 @@ const musicianSchema = new Schema({
     trim: true,
     required: "Enter a genre",
   },
-  Instrument: {
+  instrument: {
     type: String,
     trim: true,
     required: "Enter an instrument",
@@ -39,6 +39,6 @@ const musicianSchema = new Schema({
   },
 });
 
-const Product = mongoose.model("Musician", musicianSchema);
+const musician = mongoose.model("Musician", musicianSchema);
 
 module.exports = musician;
