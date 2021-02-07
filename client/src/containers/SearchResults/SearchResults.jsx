@@ -7,7 +7,8 @@ const SearchResults = () => {
     axios
       .get("/api/musician")
       .then(function (response) {
-        console.log(response);
+        setMusicians(response.data);
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -15,7 +16,7 @@ const SearchResults = () => {
   });
   return (
     <div>
-      <h1>This is the results page</h1>
+      <h1>This is the results page {musicians[0]? musicians[0].name:""}</h1>
     </div>
   );
 };
