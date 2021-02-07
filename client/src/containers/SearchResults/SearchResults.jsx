@@ -14,17 +14,31 @@ const SearchResults = () => {
       .catch(function (error) {
         console.log(error);
       });
-  });
+  }, []);
+  let musicianRows =
+    musicians.length > 0
+      ? musicians.map((musician) => (
+          <tr>
+            <td>
+              <img src={musician.imageURL} style={{ width: "10%" }} />
+            </td>
+            <td>{musician.name}</td>
+            <td></td>
+          </tr>
+        ))
+      : "";
   return (
     <div>
       <h1>This is the results page {musicians[0] ? musicians[0].name : ""}</h1>
       <table>
         <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
-          <th>Country</th>
+          <th>Profile Pic</th>
+          <th>Name</th>
+          <th>Instrument</th>
+          <th>Genre</th>
+          <th>Location</th>
         </tr>
+        {musicianRows}
       </table>
     </div>
   );
