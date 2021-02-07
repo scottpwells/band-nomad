@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+const axios = require("axios").default;
 
 const SearchResults = () => {
-    return (
-        <div>
-            <h1>This is the results page</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>This is the results page</h1>
+    </div>
+  );
 };
 
 export default SearchResults;
