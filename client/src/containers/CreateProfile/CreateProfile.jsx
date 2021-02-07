@@ -1,11 +1,25 @@
-import React from 'react';
+import React from "react";
+import axios from "axios";
+import Form from "../../components/Form/Form";
 
-const createProfile = () => {
-    return (
-        <div>
-            <h1>This is where you create your profile.</h1>
-        </div>
-    );
+const CreateProfile = () => {
+  const handleFormSubmit = (e, musicianData) => {
+    e.preventDefault();
+    axios
+      .post("/api/musician", musicianData)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  return (
+    <div>
+      <h1>create your profile.</h1>
+      <Form handleFormSubmit={handleFormSubmit} />
+    </div>
+  );
 };
 
-export default createProfile;
+export default CreateProfile;

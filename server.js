@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/mern-starter",
+  process.env.MONGODB_URI || "mongodb://localhost/band-nomad",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -31,11 +31,18 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+const MusicianController = require("./controllers/musicianController");
+
+app.use(express.static("client/build"));
+
+
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,
   });
 });
+
+app.use("/api/musician", MusicianController);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
