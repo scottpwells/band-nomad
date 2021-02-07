@@ -23,7 +23,9 @@ const SearchResults = () => {
               <img src={musician.imageURL} style={{ width: "10%" }} />
             </td>
             <td>{musician.name}</td>
-            <td></td>
+            <td>{musician.instrument}</td>
+            <td>{musician.genre}</td>
+            <td>musician.location</td>
           </tr>
         ))
       : "";
