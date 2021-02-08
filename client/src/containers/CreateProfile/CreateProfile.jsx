@@ -15,9 +15,13 @@ const CreateProfile = () => {
       });
   };
   return (
-    <div>
-      <h1>create your profile.</h1>
-      <Form handleFormSubmit={handleFormSubmit} />
+    <div className="container">
+      <div className="row">
+        <div className="col s12 center-align">
+          <h1>create your profile.</h1>
+          <Form handleFormSubmit={handleFormSubmit} />
+        </div>
+      </div>
     </div>
   );
 };

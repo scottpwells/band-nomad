@@ -8,6 +8,7 @@ const Form = ({ handleFormSubmit }) => {
   const [genre, setGenre] = useState("");
   const [instrument, setInstrument] = useState("");
   const [imageURL, setImageURL] = useState("");
+  const [bio, setBio] = useState("");
 
   return (
     <div>
@@ -22,6 +23,7 @@ const Form = ({ handleFormSubmit }) => {
             genre,
             instrument,
             imageURL,
+            bio,
           });
         }}
       >
@@ -127,6 +129,21 @@ const Form = ({ handleFormSubmit }) => {
               }}
             />
             <label htmlFor="Image URL">Image URL</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              placeholder="Bio"
+              id="bio"
+              type="text"
+              name="bio"
+              value={bio}
+              onChange={(e) => {
+                setBio(e.target.value);
+              }}
+            />
+            <label htmlFor="Image URL">Bio</label>
           </div>
         </div>
         <div className="row">
