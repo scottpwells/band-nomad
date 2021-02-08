@@ -31,7 +31,11 @@ const SearchResults = () => {
       : "";
   return (
     <div>
-      <h1>This is the results page {musicians[0] ? musicians[0].name : ""}</h1>
+      <h1>
+        Welcome to the results page!!! {musicians[0] ? musicians[0].name : ""}
+      </h1>
+      <input></input>
+      <button></button>
       <table>
         <tr>
           <th>Profile Pic</th>
