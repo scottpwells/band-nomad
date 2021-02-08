@@ -22,10 +22,10 @@ const SearchResults = () => {
             <td style={{ maxWidth: "25px" }}>
               <img src={musician.imageURL} style={{ width: "30%" }} />
             </td>
-            <td>{musician.name}</td>
-            <td>{musician.instrument}</td>
-            <td>{musician.genre}</td>
-            <td>musician.location</td>
+            <td style={{ maxWidth: "30px" }}>{musician.name}</td>
+            <td style={{ maxWidth: "25px" }}>{musician.instrument}</td>
+            <td style={{ maxWidth: "25px" }}>{musician.genre}</td>
+            <td style={{ maxWidth: "25px" }}>musician.location</td>
           </tr>
         ))
       : "";
