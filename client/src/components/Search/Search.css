@@ -1,0 +1,19 @@
+form{
+    border-style: solid;
+    border-color: #F64691;
+    border-radius: 30px;
+
+}
+
+.container{
+    padding-top: 50px; 
+}
+
+.if{
+    border-bottom: none!important;
+    box-shadow: none!important;
+}
+
+.fas fa-search{
+    color:#F64691;
+}
