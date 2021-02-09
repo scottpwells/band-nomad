@@ -13,6 +13,16 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  Profile.findById(req.params.id, function (err, profile) {
+    if (err) {
+      res.status(500).end();
+    }
+    console.log(profile);
+    res.json(profile);
+  });
+});
+
 router.post("/", (req, res) => {
   console.log(req.body);
   Profile.create(req.body).then((newProfile) => {
