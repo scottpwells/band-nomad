@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 const axios = require("axios").default;
 
 const Profile = () => {
+  let { id } = useParams();
   const [musicians, setMusicians] = useState([]);
   useEffect(() => {
     axios
@@ -16,7 +17,6 @@ const Profile = () => {
         console.log(error);
       });
   }, []);
-  let { id } = useParams();
   return (
     <div>
       <h1>ID: {id}</h1>
