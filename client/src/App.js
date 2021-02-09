@@ -18,8 +18,8 @@ function App() {
           <Route exact path="/create" component={Create} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/login" component={Login} />
-          <Route path="/profile" component={Profile} />
-          <Route exact path="/update" component={Update} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/update/:id" component={Update} />
           <Route exact path="/results" component={Results} />
         </Switch>
       </Router>

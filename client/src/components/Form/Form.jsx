@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-const Form = ({ handleFormSubmit }) => {
+const Form = ({ buttonText, handleFormSubmit }) => {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [phone, setPhone] = useState("");
@@ -10,12 +12,16 @@ const Form = ({ handleFormSubmit }) => {
   const [imageURL, setImageURL] = useState("");
   const [bio, setBio] = useState("");
 
-  return (
-    <div>
-      <form
-        className="col s12"
-        onSubmit={(e) => {
-          handleFormSubmit(e, {
+  const { id } = useParams();
+
+  useEffect(() => {
+    console.log(id);
+    if (id) {
+      axios
+        .get(`/api/musician/${id}`)
+        .then((response) => {
+          console.log(response.data);
+          const {
             name,
             contact,
             phone,
@@ -24,7 +30,41 @@ const Form = ({ handleFormSubmit }) => {
             instrument,
             imageURL,
             bio,
-          });
+          } = response.data;
+          setName(name);
+          setContact(contact);
+          setPhone(phone);
+          setEmail(email);
+          setGenre(genre);
+          setInstrument(instrument);
+          setImageURL(imageURL);
+          setBio(bio);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [id]);
+
+  return (
+    <div>
+      <form
+        className="col s12"
+        onSubmit={(e) => {
+          handleFormSubmit(
+            e, 
+            {
+            name,
+            contact,
+            phone,
+            email,
+            genre,
+            instrument,
+            imageURL,
+            bio,
+          },
+          id
+          );
         }}
       >
         <div className="row">
@@ -149,8 +189,7 @@ const Form = ({ handleFormSubmit }) => {
         <div className="row">
           <div className="col s12">
             <button className="btn waves-effect waves-light">
-              create profile
-              {/* <i className="material-icons right">send</i> */}
+              {buttonText}
             </button>
           </div>
         </div>
