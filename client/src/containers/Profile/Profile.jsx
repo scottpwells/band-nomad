@@ -5,12 +5,12 @@ const axios = require("axios").default;
 
 const Profile = () => {
   let { id } = useParams();
-  const [musicians, setMusicians] = useState([]);
+  const [musician, setMusician] = useState([]);
   useEffect(() => {
     axios
-      .get("/api/musician")
+      .get("/api/musician/" + id)
       .then(function (response) {
-        setMusicians(response.data);
+        setMusician(response.data);
         console.log(response.data);
       })
       .catch(function (error) {
