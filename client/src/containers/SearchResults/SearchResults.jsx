@@ -16,7 +16,9 @@ const SearchResults = () => {
       });
   }, []);
 
-  function selectProfile() {}
+  function selectProfile() {
+    // history.push("/profile" + id);
+  }
 
   let musicianRows =
     musicians.length > 0
