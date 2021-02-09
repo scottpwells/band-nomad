@@ -34,8 +34,13 @@ const SearchResults = () => {
       <h1>
         Welcome to the results page!!! {musicians[0] ? musicians[0].name : ""}
       </h1>
-      <input></input>
-      <button></button>
+      <form style={{ textAlign: "center" }}>
+        <label for="search">Input Search Here</label>
+
+        <input type="text" id="search" name="search" style={{ width: "40%" }} />
+        <button style={{ padding: "6px" }}>Search</button>
+      </form>
+
       <table>
         <tr>
           <th>Profile Pic</th>
