@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "./style.css"
 const axios = require("axios").default;
 
 const SearchResults = () => {
@@ -23,7 +23,7 @@ const SearchResults = () => {
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
-          <tr onClick={selectProfile}>
+          <tr onClick={selectProfile} className=" bg-colorizinger">
             <td style={{ maxWidth: "25px" }}>
               <img src={musician.imageURL} style={{ width: "30%" }} />
             </td>
