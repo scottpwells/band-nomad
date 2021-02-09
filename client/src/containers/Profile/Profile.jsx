@@ -19,8 +19,17 @@ const Profile = () => {
   }, []);
   return (
     <div>
-      <h1>ID: {id}</h1>
-      <h1>This is the Profile page</h1>
+      {/* <h1>ID: {id}</h1> */}
+      <img src={musician.imageURL} style={{ width: "35%" }} />
+      <h2>{musician.name}</h2>
+      <ul>
+        <li>Musical Genre: {musician.genre}</li>
+        <li>Instrument: {musician.instrument}</li>
+        <li>Location: musician.location</li>
+        <li>Phone Number: {musician.phone}</li>
+        <li>E-mail: {musician.email}</li>
+        <li>Contact Note: {musician.contact}</li>
+      </ul>
     </div>
   );
 };

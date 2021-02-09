@@ -15,10 +15,13 @@ const SearchResults = () => {
         console.log(error);
       });
   }, []);
+
+  function selectProfile() {}
+
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
-          <tr>
+          <tr onClick={selectProfile}>
             <td style={{ maxWidth: "25px" }}>
               <img src={musician.imageURL} style={{ width: "30%" }} />
             </td>
