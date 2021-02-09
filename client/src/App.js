@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
-import Contact from "./containers/ContactPage/ContactPage";
-import Create from "./containers/CreateProfile/CreateProfile";
-import Login from "./containers/Login/Login";
-import Home from "./containers/Home/Home";
-import Profile from "./containers/Profile/Profile";
-import Update from "./containers/UpdateProfile/UpdateProfile";
-import Results from "./containers/SearchResults/SearchResults";
+import NavBar from "./components/Navbar/NavBar";
+import Contact from "./Containers/ContactPage/ContactPage";
+import Create from "./Containers/CreateProfile/CreateProfile";
+import Login from "./Containers/Login/Login";
+import Home from "./Containers/Home/Home";
+import Profile from "./Containers/Profile/Profile";
+import Update from "./Containers/UpdateProfile/UpdateProfile";
+import Results from "./Containers/SearchResults/SearchResults";
 
 function App() {
   return (
