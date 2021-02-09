@@ -1,54 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./style.css";
-import Bio from "../../assets/IMG_6171.jpg";
 
 const Profile = () => {
+  const [musician, setMusician] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/api/musician")
+      .then((response) => {
+        setMusician(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
-      <main className="container cont">
-        <div className="row float">
-          <div className="col">
-            <img className="img" src={Bio} alt="me" />
+       <div>
+        {musician.map((musician) => (
+          <main className="container cont">
+          <div className="row">
+            <div className="col">
+            <img className="img"
+                  src={musician.imageURL}
+                  alt={musician.name}
+                />
+            </div>
+            <div className="col s9">
+              <h4>{musician.name}</h4>
+              <p>
+              {musician.bio}
+              </p>
+            </div>
           </div>
-          <div className="col s9">
-            <h4>Dennis Francis</h4>
-            <p>
-              My name is Dennis Francis. I am currently enrolled in the Full
-              Stack Flex Boot Camp with GA Tech. My back ground is in Exhibit
-              Design and the design of large format graphics. I was in the
-              Exhibit industry for 20 years. I enjoyed Exhibit Design because I
-              not only was able to create a pretty picture but it also lead to
-              the construction of a physical structure. In Web Development I am
-              doing something very similar. I am creating a great design but
-              also creating the bones of the web site. Along with making sure it
-              all works together. I plan to blend my skills as a designer with
-              the skills I learn in web development to be come a great Full
-              Stack Web Developer.
-            </p>
+          <div className="row">
+            <div className="col">
+              <p>{musician.contact}
+                  <span>
+                    <button className="btn waves-effect waves-light">
+                      contact me
+                    </button>
+                  </span></p>
+                  <p>{musician.phone}</p>
+                  <p>{musician.genre}</p>
+                  <p>{musician.instrument}</p>
+              <button className="btn waves-effect waves-light">
+                update profile
+    
+              </button>
+              <button className="btn waves-effect waves-light">
+              delete profile
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <p>if you want to jam, reach out.
-                <span>
-                  <button className="btn waves-effect waves-light">
-                    contact me
-
-                  </button>
-                </span></p>
-                <p>5551234567</p>
-                <p>rock and roll</p>
-                <p>bass guitar</p>
-            <button className="btn waves-effect waves-light">
-              update profile
-  
-            </button>
-            <button className="btn waves-effect waves-light">
-            delete profile
-            </button>
-          </div>
-        </div>
-      </main>
+        </main>
+        ))}
+      </div>
+      
     </div>
   );
 };
