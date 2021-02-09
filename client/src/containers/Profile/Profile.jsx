@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const axios = require("axios").default;
 
@@ -15,10 +16,10 @@ const Profile = () => {
         console.log(error);
       });
   }, []);
-
+  let { id } = useParams();
   return (
     <div>
-      <h1>This is the Profile page</h1>
+      <h1>ID: {id}</h1>
       <h1>This is the Profile page</h1>
     </div>
   );
