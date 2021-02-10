@@ -5,7 +5,7 @@ import Form from "../../components/Form/Form";
 
 const UpdateProfile = () => {
     const history = useHistory();
-    
+
     const handleFormSubmit = (e, musicianData, id) => {
         e.preventDefault();
         axios
