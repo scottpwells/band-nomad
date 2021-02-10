@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const axios = require("axios").default;
 
@@ -30,13 +31,18 @@ const SearchResults = () => {
             <td style={{ maxWidth: "25px" }}>{musician.instrument}</td>
             <td style={{ maxWidth: "25px" }}>{musician.genre}</td>
             <td style={{ maxWidth: "25px" }}>musician.location</td>
+            <td> <Link to={`/inProfile/${musician._id}`}>
+                  <button className="btn waves-effect waves-light">
+                    view profile
+                  </button>
+                </Link></td>
           </tr>
         ))
       : "";
   return (
     <div>
       <h1>
-        Welcome to the results page!!! {musicians[0] ? musicians[0].name : ""}
+        {/* Welcome to the results page!!! {musicians[0] ? musicians[0].name : ""} */}
       </h1>
       <form style={{ textAlign: "center" }}>
         <label for="search">Input Search Here</label>

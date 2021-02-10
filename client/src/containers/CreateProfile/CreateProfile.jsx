@@ -12,12 +12,13 @@ const CreateProfile = () => {
       .post("/api/musician", musicianData)
       .then((response) => {
         console.log(response.data);
-        history.push("/profile");
+        history.push("/results");
       })
       .catch((err) => {
         console.log(err);
       });
   };
+  
   return (
     <div className="container">
       <div className="row">

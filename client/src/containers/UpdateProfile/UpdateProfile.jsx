@@ -12,7 +12,7 @@ const UpdateProfile = () => {
           .put(`/api/musician/${id}`, musicianData)
           .then((response) => {
             console.log(response.data);
-            history.push("/profile");
+            history.push("/results");
           })
           .catch((err) => {
             console.log(err);
