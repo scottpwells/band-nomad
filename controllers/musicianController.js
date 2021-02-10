@@ -23,6 +23,17 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  Profile.findById(req.params.id)
+    .then((foundProfile) => {
+      res.json(foundProfile);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).end();
+    });
+});
+
 router.post("/", (req, res) => {
   console.log(req.body);
   Profile.create(req.body).then((newProfile) => {
@@ -32,7 +43,7 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  Product.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+  Profile.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
     (updatedObject) => {
       res.json(updatedObject);
     }
@@ -40,7 +51,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  Product.findByIdAndDelete(req.params.id).then((result) => {
+  Profile.findByIdAndDelete(req.params.id).then((result) => {
     res.json(result);
   });
 });

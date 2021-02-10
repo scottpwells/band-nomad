@@ -37,6 +37,11 @@ const musicianSchema = new Schema({
     trim: true,
     required: "Enter an image URL",
   },
+  bio: {
+    type: String,
+    trim: true,
+    required: "Enter bio",
+  },
 });
 
 const musician = mongoose.model("Musician", musicianSchema);
