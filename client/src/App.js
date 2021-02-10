@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavBar from "./components/Navbar/NavBar";
-import Contact from "./Containers/ContactPage/ContactPage";
-import Create from "./Containers/CreateProfile/CreateProfile";
-import Login from "./Containers/Login/Login";
-import Home from "./Containers/Home/Home";
-import Profile from "./Containers/Profile/Profile";
-import Update from "./Containers/UpdateProfile/UpdateProfile";
-import Results from "./Containers/SearchResults/SearchResults";
+import NavBar from "./components/NavBar/NavBar";
+import Contact from "./containers/ContactPage/ContactPage";
+import Create from "./containers/CreateProfile/CreateProfile";
+import Login from "./containers/Login/Login";
+import Home from "./containers/Home/Home";
+import Profile from "./containers/Profile/Profile";
+import InProfile from "./containers/InProfile/InProfile";
+import Update from "./containers/UpdateProfile/UpdateProfile";
+import Results from "./containers/SearchResults/SearchResults";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
           <Route exact path="/create" component={Create} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/login" component={Login} />
-          <Route path="/profile" component={Profile} />
-          <Route exact path="/update" component={Update} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/inProfile/id" component={InProfile} />
+          <Route exact path="/update/:id" component={Update} />
           <Route exact path="/results" component={Results} />
         </Switch>
       </Router>

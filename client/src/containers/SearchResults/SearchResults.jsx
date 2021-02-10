@@ -20,7 +20,11 @@ const SearchResults = () => {
       ? musicians.map((musician) => (
           <tr>
             <td style={{ maxWidth: "25px" }}>
-              <img src={musician.imageURL} style={{ width: "30%" }} />
+              <img
+                src={musician.imageURL}
+                style={{ width: "30%" }}
+                alt={musician.name}
+              />
             </td>
             <td style={{ maxWidth: "30px" }}>{musician.name}</td>
             <td style={{ maxWidth: "25px" }}>{musician.instrument}</td>
