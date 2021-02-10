@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Form from "../../components/Form/Form";
+import Form from "../../Components/Form/Form";
+
 
 const CreateProfile = () => {
   const handleFormSubmit = (e, musicianData) => {

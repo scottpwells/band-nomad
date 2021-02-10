@@ -37,6 +37,11 @@ const musicianSchema = new Schema({
     trim: true,
     required: "Enter an image URL",
   },
+  city: {
+  type: String,
+  trim: true,
+  required: "Enter a city"
+  }
 });
 
 const musician = mongoose.model("Musician", musicianSchema);

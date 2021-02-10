@@ -6,6 +6,11 @@ const Home = () => {
         <div>
        <Search />
 
+
+
+
+       
+
         </div>
     );
 };
