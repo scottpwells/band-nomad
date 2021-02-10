@@ -19,7 +19,7 @@ const Profile = () => {
   }, []);
   return (
     <div>
-      {/* <h1>ID: {id}</h1> */}
+      
       <img src={musician.imageURL} style={{ width: "35%" }} />
       <h2>{musician.name}</h2>
       <ul>
