@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-const Profile = () => {
+const InProfile = () => {
   const [musician, setMusician] = useState([]);
 
+  const { id } = useParams();
+
   useEffect(() => {
-    getProfile();
-  }, []);
-  const getProfile = () => {
+    getInProfile();
+  }, );
+  const getInProfile = () => {
     axios
-      .get("/api/musician")
+      .get(`/api/musician/${id}`)
       .then((response) => {
         console.log(response.data);
         setMusician(response.data);
@@ -24,7 +27,7 @@ const Profile = () => {
     axios
       .delete(`/api/musician/${id}`)
       .then(() => {
-        getProfile();
+        getInProfile();
       })
       .catch((err) => {
         console.log(err);
@@ -34,8 +37,7 @@ const Profile = () => {
   return (
     <div>
       <div>
-        {musician.map((musician) => (
-          <main className="container cont">
+      <main className="container cont">
             <div className="row">
               <div className="col">
                 <img
@@ -54,11 +56,11 @@ const Profile = () => {
                 <p>
                   {musician.contact}
                   <span>
-                  <Link to={`/contact/${musician._id}`}>
-                  <button className="btn waves-effect waves-light">
-                    contact me
-                  </button>
-                </Link>
+                    <Link to={`/contact/${musician._id}`}>
+                      <button className="btn waves-effect waves-light">
+                        contact me
+                      </button>
+                    </Link>
                   </span>
                 </p>
                 <p>{musician.phone}</p>
@@ -70,19 +72,20 @@ const Profile = () => {
                   </button>
                 </Link>
 
-                <button className="btn waves-effect waves-light" onClick=
-                  {() => {
+                <button
+                  className="btn waves-effect waves-light"
+                  onClick={() => {
                     deleteProfile(musician._id);
-                  }}>
+                  }}
+                >
                   delete profile
                 </button>
               </div>
             </div>
           </main>
-        ))}
       </div>
     </div>
   );
 };
 
-export default Profile;
+export default InProfile;

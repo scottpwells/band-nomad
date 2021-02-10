@@ -5,6 +5,7 @@ import Create from "./containers/CreateProfile/CreateProfile";
 import Login from "./containers/Login/Login";
 import Home from "./containers/Home/Home";
 import Profile from "./containers/Profile/Profile";
+import InProfile from "./containers/InProfile/InProfile";
 import Update from "./containers/UpdateProfile/UpdateProfile";
 import Results from "./containers/SearchResults/SearchResults";
 
@@ -19,8 +20,9 @@ function App() {
           <Route exact path="/create" component={Create} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/login" component={Login} />
-          <Route path="/profile" component={Profile} />
-          <Route exact path="/update" component={Update} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/inProfile/id" component={InProfile} />
+          <Route exact path="/update/:id" component={Update} />
           <Route exact path="/results" component={Results} />
         </Switch>
       </Router>
