@@ -30,7 +30,7 @@ const contactSchema = new Schema({
   message: {
     type: String,
     trim: true,
-    required: "Please enter a message.",
+    required: "Please enter a message ;)",
   },
 });
 
