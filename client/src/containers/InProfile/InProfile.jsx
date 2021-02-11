@@ -11,7 +11,8 @@ const InProfile = () => {
 
   useEffect(() => {
     getInProfile();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
   const getInProfile = () => {
     axios
       .get(`/api/musician/${id}`)
