@@ -34,6 +34,6 @@ const contactSchema = new Schema({
   },
 });
 
-const musician = mongoose.model("Musician", musicianSchema);
+const contact = mongoose.model("Contact", contactSchema);
 
-module.exports = musician;
+module.exports = contact;
