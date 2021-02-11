@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Profile = require("../models/musician");
+const Profile = require("../models/contact");
 
 router.post("/", (req, res) => {
   console.log(req.body);
