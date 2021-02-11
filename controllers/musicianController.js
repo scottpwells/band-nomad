@@ -2,6 +2,16 @@ const express = require("express");
 const router = express.Router();
 const Profile = require("../models/musician");
 
+router.get("/:id", (req, res) => {
+  Profile.findById(req.params.id, function (err, profile) {
+    if (err) {
+      res.status(500).end();
+    }
+    console.log(profile);
+    res.json(profile);
+  });
+});
+
 router.get("/", (req, res) => {
   Profile.find()
     .then((profile) => {

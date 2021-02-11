@@ -1,25 +1,40 @@
 import React, { useState, useEffect } from "react";
+import "./style.css";
 import { Link } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const axios = require("axios").default;
 
 const SearchResults = () => {
   const [musicians, setMusicians] = useState([]);
+  // let history = useHistory();
   useEffect(() => {
     axios
       .get("/api/musician")
       .then(function (response) {
         setMusicians(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
+
+  // function selectProfile(event) {
+  //   let id = event.target.parentNode.dataset.id;
+  //   history.push(`/inProfile/${id}`);
+  //   // history.push('/profile/' +id)
+  //   // window.location = "https://localhost:3000/profile/" + id;
+  // }
+
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
-          <tr>
+          <tr
+            // data-id={musician._id}
+            // onClick={selectProfile}
+            className=" bg-colorizinger"
+          >
             <td style={{ maxWidth: "25px" }}>
               <img
                 src={musician.imageURL}
