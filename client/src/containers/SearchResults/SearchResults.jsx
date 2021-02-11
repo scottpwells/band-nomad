@@ -1,37 +1,38 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const axios = require("axios").default;
 
 const SearchResults = () => {
   const [musicians, setMusicians] = useState([]);
-  let history = useHistory();
+  // let history = useHistory();
   useEffect(() => {
     axios
       .get("/api/musician")
       .then(function (response) {
         setMusicians(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
 
-  function selectProfile(event) {
-    let id = event.target.parentNode.dataset.id;
-    history.push(`/profile/${id}`);
-    // history.push('/profile/' +id)
-    // window.location = "https://localhost:3000/profile/" + id;
-  }
+  // function selectProfile(event) {
+  //   let id = event.target.parentNode.dataset.id;
+  //   history.push(`/inProfile/${id}`);
+  //   // history.push('/profile/' +id)
+  //   // window.location = "https://localhost:3000/profile/" + id;
+  // }
 
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
           <tr
-            data-id={musician._id}
-            onClick={selectProfile}
+            // data-id={musician._id}
+            // onClick={selectProfile}
             className=" bg-colorizinger"
           >
             <td style={{ maxWidth: "25px" }}>
@@ -45,13 +46,18 @@ const SearchResults = () => {
             <td style={{ maxWidth: "25px" }}>{musician.instrument}</td>
             <td style={{ maxWidth: "25px" }}>{musician.genre}</td>
             <td style={{ maxWidth: "25px" }}>musician.location</td>
+            <td> <Link to={`/inProfile/${musician._id}`}>
+                  <button className="btn waves-effect waves-light">
+                    view profile
+                  </button>
+                </Link></td>
           </tr>
         ))
       : "";
   return (
     <div>
       <h1>
-        Welcome to the results page!!! {musicians[0] ? musicians[0].name : ""}
+        {/* Welcome to the results page!!! {musicians[0] ? musicians[0].name : ""} */}
       </h1>
       <form style={{ textAlign: "center" }}>
         <label for="search">Input Search Here</label>
