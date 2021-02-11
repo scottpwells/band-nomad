@@ -4,9 +4,9 @@ const Profile = require("../models/musician");
 
 router.post("/", (req, res) => {
   console.log(req.body);
-  ContactPage.create(req.body).then((newProfile) => {
-    console.log(newProfile);
-    res.json(newProfile);
+  contact.create(req.body).then((newContact) => {
+    console.log(newContact);
+    res.json(newContact);
   });
 });
 
