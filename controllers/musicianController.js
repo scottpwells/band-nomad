@@ -6,8 +6,13 @@ router.get("/", (req, res) => {
   // console.log(req.query)
   const queryParams = {};
   if (req.query.instrument) {
-    queryParams.instrument = req.query.instrument;
+    queryParams.instrument = req.query.instrument.toLowerCase();
   }
+  if (req.query.genre) {
+    queryParams.genre = req.query.genre.toLowerCase();
+  }
+
+  console.log(queryParams)
   Profile.find(queryParams)
     .then((profile) => {
       res.json(profile);
