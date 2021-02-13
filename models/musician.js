@@ -20,7 +20,7 @@ const musicianSchema = new Schema({
   },
   email: {
     type: String,
-    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
   },
   genre: {
     type: String,
