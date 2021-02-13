@@ -3,30 +3,38 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Home = () => {
-  const [search, setSearch] = useState([]);
+  const [instrument, setInstrument] = useState("");
+  const [genre, setGenre] = useState("");
   const [musicians, setMusicians] = useState([]);
 
   const handleInputChange = (event) => {
     const { value } = event.target;
-    setSearch(value);
-    console.log(value)
-    
+    setInstrument(value);
+    console.log(value);
   };
 
   const handleFormSubmit = (event) => {
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
     searchProfiles();
-    
   };
 
   const searchProfiles = () => {
+    let baseURL = "/api/musician/?";
+    if (instrument) {
+      baseURL = baseURL + `instrument=${instrument}&`;
+    }
+    if (genre) {
+      baseURL = baseURL + `genre=${genre}&`;
+    }
+    console.log(baseURL);
+
     axios
-      .get(`/api/musician/?instrument=${search}`)
+      .get(baseURL)
       .then(function (response) {
         setMusicians(response.data);
         console.log(response.data);
-        console.log(search)
+        console.log(instrument);
       })
       .catch(function (error) {
         console.log(error);
@@ -66,15 +74,29 @@ const Home = () => {
         <div className="Row">
           <div className="col-sm-12">
             <div className="input-field">
-              {/* TODO: Convert this to a dropdown for better search results */}
+              {/* TODO: Convert this to a dropdown for better instrument results */}
               <input
-                id="search"
+                id="instrument"
                 type="text"
-                value={search}
-                onChange={handleInputChange}
-                required
+                value={instrument}
+                onChange={(e) => {
+                  setInstrument(e.target.value);
+                }}
+                placeholder="Instrument"
               />
-              <button onClick={handleFormSubmit} className="btn waves-effect waves-light">
+              <input
+                id="genre"
+                type="text"
+                value={genre}
+                onChange={(e) => {
+                  setGenre(e.target.value);
+                }}
+                placeholder="Genre"
+              />
+              <button
+                onClick={handleFormSubmit}
+                className="btn waves-effect waves-light"
+              >
                 Search Profiles
               </button>
             </div>

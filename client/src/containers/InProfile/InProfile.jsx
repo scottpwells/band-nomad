@@ -72,7 +72,7 @@ const InProfile = () => {
                   update profile
                 </button>
               </Link>
-              <Link to={"/results"}>
+              <Link to={"/"}>
                 <button
                   className="btn waves-effect waves-light"
                   onClick={() => {

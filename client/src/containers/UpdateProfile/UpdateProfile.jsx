@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Form from "../../components/Form/Form";
+import Form from "../../Components/Form/Form";
 
 const UpdateProfile = () => {
     const history = useHistory();
