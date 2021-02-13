@@ -11,7 +11,8 @@ const InProfile = () => {
 
   useEffect(() => {
     getInProfile();
-  }, );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
   const getInProfile = () => {
     axios
       .get(`/api/musician/${id}`)
@@ -37,41 +38,41 @@ const InProfile = () => {
   return (
     <div>
       <div>
-      <main className="container cont">
-            <div className="row">
-              <div className="col">
-                <img
-                  className="img"
-                  src={musician.imageURL}
-                  alt={musician.name}
-                />
-              </div>
-              <div className="col s9">
-                <h4>{musician.name}</h4>
-                <p>{musician.bio}</p>
-              </div>
+        <main className="container cont">
+          <div className="row">
+            <div className="col">
+              <img
+                className="img"
+                src={musician.imageURL}
+                alt={musician.name}
+              />
             </div>
-            <div className="row">
-              <div className="col">
-                <p>
-                  {musician.contact}
-                  <span>
-                    <Link to={`/contact/${musician._id}`}>
-                      <button className="btn waves-effect waves-light">
-                        contact me
-                      </button>
-                    </Link>
-                  </span>
-                </p>
-                <p>{musician.phone}</p>
-                <p>{musician.genre}</p>
-                <p>{musician.instrument}</p>
-                <Link to={`/update/${musician._id}`}>
-                  <button className="btn waves-effect waves-light">
-                    update profile
-                  </button>
-                </Link>
-
+            <div className="col s9">
+              <h4>{musician.name}</h4>
+              <p>{musician.bio}</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <p>
+                {musician.contact}
+                <span>
+                  <Link to={`/contact/${musician._id}`}>
+                    <button className="btn waves-effect waves-light">
+                      contact me
+                    </button>
+                  </Link>
+                </span>
+              </p>
+              <p>{musician.phone}</p>
+              <p>{musician.genre}</p>
+              <p>{musician.instrument}</p>
+              <Link to={`/update/${musician._id}`}>
+                <button className="btn waves-effect waves-light">
+                  update profile
+                </button>
+              </Link>
+              <Link to={"/results"}>
                 <button
                   className="btn waves-effect waves-light"
                   onClick={() => {
@@ -80,9 +81,10 @@ const InProfile = () => {
                 >
                   delete profile
                 </button>
-              </div>
+              </Link>
             </div>
-          </main>
+          </div>
+        </main>
       </div>
     </div>
   );

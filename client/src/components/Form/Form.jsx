@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Form = ({ buttonText, handleFormSubmit }) => {
@@ -52,18 +53,18 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         className="col s12"
         onSubmit={(e) => {
           handleFormSubmit(
-            e, 
+            e,
             {
-            name,
-            contact,
-            phone,
-            email,
-            genre,
-            instrument,
-            imageURL,
-            bio,
-          },
-          id
+              name,
+              contact,
+              phone,
+              email,
+              genre,
+              instrument,
+              imageURL,
+              bio,
+            },
+            id
           );
         }}
       >
@@ -188,6 +189,11 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         </div>
         <div className="row">
           <div className="col s12">
+            {/* <Link to={`/inProfile/${_id}`}>
+              <button className="btn waves-effect waves-light">
+                {buttonText}
+              </button>
+            </Link> */}
             <button className="btn waves-effect waves-light">
               {buttonText}
             </button>

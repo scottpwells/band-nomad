@@ -3,7 +3,12 @@ const router = express.Router();
 const Profile = require("../models/musician");
 
 router.get("/", (req, res) => {
-  Profile.find()
+  // console.log(req.query)
+  const queryParams = {};
+  if (req.query.instrument) {
+    queryParams.instrument = req.query.instrument;
+  }
+  Profile.find(queryParams)
     .then((profile) => {
       res.json(profile);
     })
@@ -23,6 +28,29 @@ router.get("/:id", (req, res) => {
       res.status(404).end();
     });
 });
+
+// router.get("/:id", (req, res) => {
+//   Profile.findById(req.params.id, function (err, profile) {
+//     if (err) {
+//       res.status(500).end();
+//     }
+//     console.log(profile);
+//     res.json(profile);
+//   });
+// });
+
+// router.get("/?instrument=drums", (req, res) => {
+//   Profile.find({
+//     instrument: { $regex: new RegExp(req.query.q, 'i')}
+//   })
+//     .then((foundProfile) => {
+//       res.json(foundProfile);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(404).end();
+//     });
+// });
 
 router.post("/", (req, res) => {
   console.log(req.body);

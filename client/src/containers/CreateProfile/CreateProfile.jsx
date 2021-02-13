@@ -11,13 +11,14 @@ const CreateProfile = () => {
     axios
       .post("/api/musician", musicianData)
       .then((response) => {
-        console.log(response.data);
-        history.push("/profile");
+        console.log(response.data._id);
+        history.push(`/inProfile/${response.data._id}`);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+  
   return (
     <div className="container">
       <div className="row">
