@@ -7,11 +7,13 @@ const Form = ({ buttonText, handleFormSubmit }) => {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [genre, setGenre] = useState("");
   const [instrument, setInstrument] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [bio, setBio] = useState("");
+  
 
   const { id } = useParams();
 
@@ -26,6 +28,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
             name,
             contact,
             phone,
+            city,
             email,
             genre,
             instrument,
@@ -35,6 +38,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
           setName(name);
           setContact(contact);
           setPhone(phone);
+          setCity(city);
           setEmail(email);
           setGenre(genre);
           setInstrument(instrument);
@@ -58,6 +62,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               name,
               contact,
               phone,
+              city,
               email,
               genre,
               instrument,
@@ -123,8 +128,23 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
+              />
+               <label htmlFor="email">Email</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <input
+                  placeholder="City"
+                  id="city"
+                  type="text"
+                  name="city"
+                  value={city}
+                  onChange={(e) => {
+                    setCity(e.target.value);
+                  }}
             />
-            <label htmlFor="email">Email</label>
+            <label htmlFor="City">City</label>
           </div>
         </div>
         <div className="row">

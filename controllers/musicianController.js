@@ -11,6 +11,9 @@ router.get("/", (req, res) => {
   if (req.query.genre) {
     queryParams.genre = req.query.genre.toLowerCase();
   }
+  if (req.query.city) {
+    queryParams.city = req.query.city;
+  }
 
   console.log(queryParams)
   Profile.find(queryParams)

@@ -42,6 +42,11 @@ const musicianSchema = new Schema({
     trim: true,
     required: "Enter bio",
   },
+  city:{
+    type: String,
+    trim: true,
+    required: "Enter the city you live in"
+  }
 });
 
 const musician = mongoose.model("Musician", musicianSchema);

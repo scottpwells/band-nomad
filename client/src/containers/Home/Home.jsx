@@ -5,16 +5,17 @@ import axios from "axios";
 const Home = () => {
   const [instrument, setInstrument] = useState("");
   const [genre, setGenre] = useState("");
+  const [city, setCity] = useState("");
   const [musicians, setMusicians] = useState([]);
 
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    setInstrument(value);
-    console.log(value);
-  };
+  // const handleInputChange = (event) => {
+  //   const { value } = event.target;
+  //   setInstrument(value);
+  //   console.log(value);
+  // };
 
   const handleFormSubmit = (event) => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+    // When the form is submitted, prevent its default behavior, 
     event.preventDefault();
     searchProfiles();
   };
@@ -26,6 +27,10 @@ const Home = () => {
     }
     if (genre) {
       baseURL = baseURL + `genre=${genre}&`;
+    }
+
+    if (city) {
+      baseURL = baseURL + `city=${city}&`;
     }
     console.log(baseURL);
 
@@ -55,7 +60,7 @@ const Home = () => {
             <td style={{ maxWidth: "30px" }}>{musician.name}</td>
             <td style={{ maxWidth: "25px" }}>{musician.instrument}</td>
             <td style={{ maxWidth: "25px" }}>{musician.genre}</td>
-            <td style={{ maxWidth: "25px" }}>{musician.location}</td>
+            <td style={{ maxWidth: "25px" }}>{musician.city}</td>
             <td>
               {" "}
               <Link to={`/inProfile/${musician._id}`}>
@@ -93,6 +98,15 @@ const Home = () => {
                 }}
                 placeholder="Genre"
               />
+              <input
+                id="city"
+                type="text"
+                value={city}
+                onChange={(e) => {
+                  setCity(e.target.value);
+                }}
+                placeholder="City"
+              />
               <button
                 onClick={handleFormSubmit}
                 className="btn waves-effect waves-light"
@@ -125,7 +139,7 @@ const Home = () => {
             <th>Name</th>
             <th>Instrument</th>
             <th>Genre</th>
-            <th>Location</th>
+            <th>City</th>
           </tr>
           {musicianRows}
         </table>
