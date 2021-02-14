@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import emptyStage from "../../assets/images/nomadHero.png";
+import "../Home/Home.css";
 
 const Home = () => {
   const [instrument, setInstrument] = useState("");
@@ -143,6 +145,7 @@ const Home = () => {
           </tr>
           {musicianRows}
         </table>
+         <img src={emptyStage} alt="empty stage with guitar drum an keyboards signifying find your band"/>
       </div>
     </>
   );

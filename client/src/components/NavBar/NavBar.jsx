@@ -1,14 +1,17 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import "./NavBar.css"
+import logoBand250 from "../../assets/images/band-nomad-logo-ph.psd";
 
 const NavBar = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <Link to="/" className="brand-logo">
-          Home
-        </Link>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
+      <img src={logoBand250} alt="band nomad logo" className="brand-logo center"/> 
+      <Link to="/" data-target="mobile-demo" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+      </Link>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
             <NavLink
               to="/create"
