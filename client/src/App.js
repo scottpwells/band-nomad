@@ -1,13 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavBar from "./Components/NavBar/NavBar.jsx";
+import NavBar from "./components/NavBar/NavBar";
 import ContactPage from "./containers/ContactPage/ContactPage";
 import Create from "./containers/CreateProfile/CreateProfile";
 import Login from "./containers/Login/Login";
 import Home from "./containers/Home/Home";
 import InProfile from "./containers/InProfile/InProfile";
 import Update from "./containers/UpdateProfile/UpdateProfile";
-
-
 
 function App() {
   return (
