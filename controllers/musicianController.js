@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
     queryParams.genre = req.query.genre.toLowerCase();
   }
 
-  console.log(queryParams)
+  console.log(queryParams);
   Profile.find(queryParams)
     .then((profile) => {
       res.json(profile);

@@ -17,7 +17,7 @@ const ContactPage = ({ handleFormSubmit }) => {
     <div className="container">
       <div className="row">
         <div className="col s12 center-align">
-          <h1>Write a Message!</h1>
+          <h1>Please enter your information and write a message!</h1>
           <div>
             <form
               className="col s12"
