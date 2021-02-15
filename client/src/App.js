@@ -16,6 +16,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/create" component={Create} />
           <Route exact path="/contact/" component={ContactPage} />
+          <Route exact path="/contact/:id" component={ContactPage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/update" component={Update} />
           <Route path="/inProfile/:id" component={InProfile} />
