@@ -35,12 +35,32 @@ async function main(body) {
     body.message +
     "</p>";
 
+  let text =
+    "Name: " +
+    body.name +
+    "\n" +
+    "Band Name: " +
+    body.bandName +
+    "\n" +
+    "Genre: " +
+    body.genre +
+    "\n" +
+    "Email: " +
+    body.email +
+    "\n" +
+    "Phone: " +
+    body.phone +
+    "\n" +
+    "Message: " +
+    body.message +
+    "\n";
+
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: '"Band Nomad 👻" <band.nomad3@gmail.com>', // sender address
     to: "martin.tara117@gmail.com, tmartin@rockdale.k12.ga.us", // list of receivers
     subject: "A user from Band Nomad is reaching out!", // Subject line
-    text: JSON.stringify(body), // plain text body
+    text, // plain text body
     html, // html body
   });
 
