@@ -12,7 +12,7 @@ async function main() {
     secure: true, // true for 465, false for other ports
     auth: {
       user: "band.nomad3@gmail.com", // generated ethereal user
-      pass: "Bandnomad123", // generated ethereal password
+      pass: "piajhtfvzfuhxaiy", // generated ethereal password
     },
   });
 
