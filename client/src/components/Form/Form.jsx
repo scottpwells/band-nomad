@@ -158,25 +158,14 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 }}
               >
                 <option value="" disabled selected>
-                  Choose Instrument
+                  Choose a Genre
                 </option>
-                
-                <option value="blues">Guitar Player</option>
-                <option value="country">Drummer</option>
-                <option value="pop">Lead Singer</option>
-                <option value="rock">Bass Player</option>
+                <option value="blues">Rhythm and Blues</option>
+                <option value="country">Country Music</option>
+                <option value="jazz">Jazz Music</option>
+                <option value="pop">Pop Music</option>
+                <option value="rock">Rock Music</option>
               </select>
-            <input
-              placeholder="Genre"
-              id="genre"
-              type="text"
-              name="genre"
-              value={genre}
-              onChange={(e) => {
-                setGenre(e.target.value);
-              }}
-            />
-            <label htmlFor="Genre">Genre</label>
           </div>
         </div>
         <div className="row">
@@ -232,11 +221,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         </div>
         <div className="row">
           <div className="col s12">
-            {/* <Link to={`/inProfile/${_id}`}>
-              <button className="btn waves-effect waves-light">
-                {buttonText}
-              </button>
-            </Link> */}
             <button className="btn waves-effect waves-light">
               {buttonText}
             </button>
