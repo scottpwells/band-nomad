@@ -1,10 +1,17 @@
 import React from "react";
 
+function LogIn() {
+  return <div>login</div>;
+}
+function SignUp() {
+  return <div>signup</div>;
+}
+
 const Login = () => {
   return (
     <div>
-      <h1>This is the Login page</h1>
-      <h1>This is the Login page</h1>
+      <LogIn></LogIn>
+      <SignUp></SignUp>
     </div>
   );
 };
