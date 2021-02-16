@@ -1,17 +1,20 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./Components/NavBar/NavBar.jsx"
 import ContactPage from "./containers/ContactPage/ContactPage";
 import Create from "./containers/CreateProfile/CreateProfile";
 import Login from "./containers/Login/Login";
 import Home from "./containers/Home/Home";
 import InProfile from "./containers/InProfile/InProfile";
 import Update from "./containers/UpdateProfile/UpdateProfile";
+import Footer from "./Components/Footer/Footer.jsx";
+
 
 function App() {
   return (
     <div>
       <Router>
         <NavBar />
+       
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/create" component={Create} />
@@ -22,6 +25,7 @@ function App() {
           <Route path="/inProfile/:id" component={InProfile} />
           <Route exact path="/update/:id" component={Update} />
         </Switch>
+        <Footer/>
       </Router>
     </div>
   );

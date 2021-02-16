@@ -17,6 +17,25 @@
     "static/js/runtime-main.1af2b109.js",
     "static/js/2.0b81e02a.chunk.js",
     "static/css/main.c6986030.chunk.css",
-    "static/js/main.ae4a7844.chunk.js"
+    "static/js/main.ae4a7844.chunk.js",
+    "main.css": "/static/css/main.1c1b4f23.chunk.css",
+    "main.js": "/static/js/main.9d1859fc.chunk.js",
+    "main.js.map": "/static/js/main.9d1859fc.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e0f635d8.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e0f635d8.js.map",
+    "static/js/2.ca09d559.chunk.js": "/static/js/2.ca09d559.chunk.js",
+    "static/js/2.ca09d559.chunk.js.map": "/static/js/2.ca09d559.chunk.js.map",
+    "static/js/3.04adb54e.chunk.js": "/static/js/3.04adb54e.chunk.js",
+    "static/js/3.04adb54e.chunk.js.map": "/static/js/3.04adb54e.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.1c1b4f23.chunk.css.map": "/static/css/main.1c1b4f23.chunk.css.map",
+    "static/js/2.ca09d559.chunk.js.LICENSE.txt": "/static/js/2.ca09d559.chunk.js.LICENSE.txt",
+    "static/media/nomadHero470.1ae30d58.png": "/static/media/nomadHero470.1ae30d58.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e0f635d8.js",
+    "static/js/2.ca09d559.chunk.js",
+    "static/css/main.1c1b4f23.chunk.css",
+    "static/js/main.9d1859fc.chunk.js"
   ]
 }
