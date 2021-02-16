@@ -75,7 +75,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="Name"
+
               id="name"
               type="text"
               name="name"
@@ -90,7 +90,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="Contact Note"
+
               id="contact"
               type="text"
               name="contact"
@@ -105,7 +105,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="Phone Number"
+
               id="phone"
               type="number"
               name="phone"
@@ -134,7 +134,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="City"
+
               id="city"
               type="text"
               name="city"
@@ -148,24 +148,32 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         </div>
         <div className="row">
           <div className="input-field col s12">
-          <select
-                placeholder="Genre"
-                id="genre"
-                name="genre"
-                value={genre}
-                onChange={(e) => {
-                  setGenre(e.target.value);
-                }}
-              >
-                <option value="" disabled selected>
-                  Choose a Genre
-                </option>
-                <option value="blues">Rhythm and Blues</option>
-                <option value="country">Country Music</option>
-                <option value="jazz">Jazz Music</option>
-                <option value="pop">Pop Music</option>
-                <option value="rock">Rock Music</option>
-              </select>
+            <input
+
+              id="bio"
+              type="text"
+              name="bio"
+              value={bio}
+              onChange={(e) => {
+                setBio(e.target.value);
+              }}
+            />
+            <label htmlFor="bio">Bio</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+
+              id="imageURL"
+              type="text"
+              name="imageURL"
+              value={imageURL}
+              onChange={(e) => {
+                setImageURL(e.target.value);
+              }}
+            />
+            <label htmlFor="Image URL">Image URL</label>
           </div>
         </div>
         <div className="row">
@@ -191,32 +199,25 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <input
-              placeholder="Image URL"
-              id="imageURL"
-              type="text"
-              name="imageURL"
-              value={imageURL}
-              onChange={(e) => {
-                setImageURL(e.target.value);
-              }}
-            />
-            <label htmlFor="Image URL">Image URL</label>
-          </div>
-        </div>
-        <div className="row">
-          <div className="input-field col s12">
-            <input
-              placeholder="Bio"
-              id="bio"
-              type="text"
-              name="bio"
-              value={bio}
-              onChange={(e) => {
-                setBio(e.target.value);
-              }}
-            />
-            <label htmlFor="Image URL">Bio</label>
+          <select
+                placeholder="Genre"
+                id="genre"
+                name="genre"
+                value={genre}
+                onChange={(e) => {
+                  setGenre(e.target.value);
+                }}
+                className="browser-default"
+              >
+                <option value="" disabled selected>
+                  Choose a Genre
+                </option>
+                <option value="blues">Rhythm and Blues</option>
+                <option value="country">Country Music</option>
+                <option value="jazz">Jazz Music</option>
+                <option value="pop">Pop Music</option>
+                <option value="rock">Rock Music</option>
+              </select>
           </div>
         </div>
         <div className="row">
