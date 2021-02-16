@@ -31,6 +31,7 @@
     "if-env": "^1.0.4",
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.11.14",
+    "nodemailer": "^6.4.18",
     "nodemon": "^2.0.7",
     "postcss": "^7.0.35",
     "react-router": "^5.2.0",
