@@ -13,7 +13,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
   const [instrument, setInstrument] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [bio, setBio] = useState("");
-  
 
   const { id } = useParams();
 
@@ -128,27 +127,45 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              />
-               <label htmlFor="email">Email</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  placeholder="City"
-                  id="city"
-                  type="text"
-                  name="city"
-                  value={city}
-                  onChange={(e) => {
-                    setCity(e.target.value);
-                  }}
+            />
+            <label htmlFor="email">Email</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              placeholder="City"
+              id="city"
+              type="text"
+              name="city"
+              value={city}
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}
             />
             <label htmlFor="City">City</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
+          <select
+                placeholder="Genre"
+                id="genre"
+                name="genre"
+                value={genre}
+                onChange={(e) => {
+                  setGenre(e.target.value);
+                }}
+              >
+                <option value="" disabled selected>
+                  Choose Instrument
+                </option>
+                
+                <option value="blues">Guitar Player</option>
+                <option value="country">Drummer</option>
+                <option value="pop">Lead Singer</option>
+                <option value="rock">Bass Player</option>
+              </select>
             <input
               placeholder="Genre"
               id="genre"
@@ -163,18 +180,24 @@ const Form = ({ buttonText, handleFormSubmit }) => {
           </div>
         </div>
         <div className="row">
-          <div className="input-field col s12">
-            <input
-              placeholder="Instrument"
+          <div className="col s12">
+            <select
               id="instrument"
-              type="text"
-              name="instrument"
               value={instrument}
               onChange={(e) => {
                 setInstrument(e.target.value);
               }}
-            />
-            <label htmlFor="Instrument">Instrument</label>
+              className="browser-default"
+            >
+              <option value="" disabled selected>
+                Choose Instrument
+              </option>
+              <option value="bass">Bass Player</option>
+              <option value="guitar">Guitar Player</option>
+              <option value="drums">Drummer</option>
+              <option value="singer">Lead Singer</option>
+            </select>
+
           </div>
         </div>
         <div className="row">
