@@ -1,0 +1,49 @@
+.login {
+  background-color: white;
+  text-align: center;
+}
+
+.loginTitle {
+  color: hotpink;
+  text-shadow: -1px -1px 0 #008fc1, 1px -1px 0 #008fc1, -1px 1px 0 #008fc1,
+    1px 1px 0 #008fc1;
+}
+
+.submitButton {
+  background-color: #008fc1;
+  color: white;
+  border: solid 2px navy;
+  /* padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px; */
+}
+.submitButton:hover {
+  background-color: hotpink;
+}
+
+.signup {
+  border: solid 2px navy;
+  text-align: center;
+  color: white;
+}
+
+.hello {
+  text-shadow: -1px -1px 0 hotpink, 1px -1px 0 hotpink, -1px 1px 0 hotpink,
+    1px 1px 0 hotpink;
+}
+
+.signUpButton {
+  background-color: white;
+  color: navy;
+  border: solid 2px hotpink;
+  /* padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px; */
+}
+.signUpButton:hover {
+  background-color: hotpink;
+  color: white;
+  border: solid 2px navy;
+}
