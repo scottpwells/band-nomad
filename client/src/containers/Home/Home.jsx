@@ -75,7 +75,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="container" style={{ marginTop: 20 }}>
+      <div className="container" style={{marginTop:20}}>
         <div className="Row">
           <div className="col s12">
             <div className="Row">
@@ -131,20 +131,20 @@ const Home = () => {
         </div>
       </div>
       <div className="container">
-        <div className="row">
-          <div className="col s12">
-            <table>
-              <tr>
-                <th>Profile Pic</th>
-                <th>Name</th>
-                <th>Instrument</th>
-                <th>Genre</th>
-                <th>City</th>
-              </tr>
-              {musicianRows}
-            </table>
-          </div>
-        </div>
+      <div className="row">
+      <div className="col s12">
+        <table>
+          <tr>
+            <th>Profile Pic</th>
+            <th>Name</th>
+            <th>Instrument</th>
+            <th>Genre</th>
+            <th>City</th>
+          </tr>
+          {musicianRows}
+        </table>
+      </div>
+      </div>
       </div>
     </>
   );
