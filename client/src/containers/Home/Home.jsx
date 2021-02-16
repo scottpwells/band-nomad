@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import emptyStage from "../../assets/images/nomadHero.png";
+import emptyStage from "../../assets/images/nomadHero470.png";
 import "../Home/Home.css";
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
   // };
 
   const handleFormSubmit = (event) => {
-    // When the form is submitted, prevent its default behavior, 
+    // When the form is submitted, prevent its default behavior,
     event.preventDefault();
     searchProfiles();
   };
@@ -51,7 +51,7 @@ const Home = () => {
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
-          <tr className=" bg-colorizinger">
+          <tr className="bg-colorizinger">
             <td style={{ maxWidth: "25px" }}>
               <img
                 src={musician.imageURL}
@@ -78,62 +78,40 @@ const Home = () => {
   return (
     <>
       <div className="container">
-        <div className="Row">
-          <div className="col-sm-12">
-            <div className="input-field">
-              {/* TODO: Convert this to a dropdown for better instrument results */}
-              <input
-                id="instrument"
-                type="text"
-                value={instrument}
-                onChange={(e) => {
-                  setInstrument(e.target.value);
-                }}
-                placeholder="Instrument"
-              />
-              <input
-                id="genre"
-                type="text"
-                value={genre}
-                onChange={(e) => {
-                  setGenre(e.target.value);
-                }}
-                placeholder="Genre"
-              />
-              <input
-                id="city"
-                type="text"
-                value={city}
-                onChange={(e) => {
-                  setCity(e.target.value);
-                }}
-                placeholder="City"
-              />
-              <button
-                onClick={handleFormSubmit}
-                className="btn waves-effect waves-light"
-              >
-                Search Profiles
-              </button>
+        <div className="row">
+          <div className="row">
+            <div className="row">
+              <div className="col-sm-6">
+                <div className="col-sm-6">
+                  <select
+                    id="instrument"
+                    value={instrument}
+                    onChange={(e) => {
+                      setInstrument(e.target.value);
+                    }}
+                    className="browser-default"
+                  >
+                    <option value="" disabled selected>
+                      Find Your Band Member
+                    </option>
+                    <option value="bass">Bass Player</option>
+                    <option value="guitar">Guitar Player</option>
+                    <option value="drums">Drummer</option>
+                    <option value="singer">Lead Singer</option>
+                  </select>
+                  <button
+                    onClick={handleFormSubmit}
+                    className="btn waves-effect waves-light"
+                  >
+                    Search Profiles
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      {/* <div className="container">
-        <div className="row">
-          <div className="col">
-            <label>Browser Select</label>
-            <select className="browser-default">
-              <option value="" disabled selected>
-                Choose your option
-              </option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
-          </div>
-        </div>
-      </div> */}
+
       <div>
         <table>
           <tr>
@@ -145,7 +123,12 @@ const Home = () => {
           </tr>
           {musicianRows}
         </table>
-         <img src={emptyStage} alt="empty stage with guitar drum an keyboards signifying find your band"/>
+        <img
+          className="hero-text"
+          id="hero"
+          src={emptyStage}
+          alt="empty stage with guitar drum an keyboards signifying find your band"
+        />
       </div>
     </>
   );

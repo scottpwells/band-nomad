@@ -1,8 +1,37 @@
 
 
 .nav-wrapper{
+height: auto;   
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+overflow: hidden;       
 background-color:#004AAD;
-padding-bottom: 10%;
-
+padding-bottom: 7.5%;
+max-width: auto;
+max-height: auto;
 }
 
+#navImage{
+        max-height: auto;
+        overflow: hidden;
+        margin-bottom: 5px;
+        vertical-align: auto;
+      }
+
+
+.sidenav{
+    background-color:#008FC1;
+     
+}
+
+ul{
+    float: Left;
+    position: relative;
+    align-content: left;
+}
