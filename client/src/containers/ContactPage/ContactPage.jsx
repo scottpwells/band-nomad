@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 // import { Link } from "react-router-dom";
 // import axios from "axios";
 
-const ContactPage = ({ handleFormSubmit }) => {
+const ContactPage = () => {
   const [name, setName] = useState("");
   const [bandName, setBandName] = useState("");
   const [genre, setGenre] = useState("");
@@ -13,27 +14,33 @@ const ContactPage = ({ handleFormSubmit }) => {
 
   const { id } = useParams();
 
+  console.log(id, "we found the id");
+
   return (
     <div className="container">
       <div className="row">
         <div className="col s12 center-align">
-          <h1>Write a Message!</h1>
+          <h1>Please enter your information and write a message!</h1>
           <div>
             <form
               className="col s12"
               onSubmit={(e) => {
-                handleFormSubmit(
-                  e,
-                  {
+                e.preventDefault();
+                axios
+                  .post("/api/contact/user/" + id, {
                     name,
                     bandName,
                     genre,
                     email,
                     phone,
                     message,
-                  },
-                  id
-                );
+                  })
+                  .then((response) => {
+                    console.log(response.data._id);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
               }}
             >
               <div className="row">
