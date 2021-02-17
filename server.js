@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const passport = require("passport");
+const passport = require("./validation/index.js");
 const session = require("express-session");
 
 const app = express();
