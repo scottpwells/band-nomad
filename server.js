@@ -28,8 +28,8 @@ app.use( (req, res, next) => {
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/band-nomad", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
   useCreateIndex: true,
+  useFindAndModify: false,
 });
 
 const connection = mongoose.connection;

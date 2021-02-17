@@ -1,27 +1,45 @@
 
-
-.nav-wrapper{
-height: auto;   
-display: -webkit-box;
-display: -ms-flexbox;
-display: flex;
--ms-flex-wrap: wrap;
-flex-wrap: wrap;
--webkit-box-align: center;
--ms-flex-align: center;
-align-items: center;
-overflow: hidden;       
-background-color:#004AAD;
-padding-bottom: 7.5%;
-max-width: auto;
-max-height: auto;
+nav {
+    background-color:#004AAD;
+    height: 100px;
+    line-height: 30px;
+    /* font-family: 'ultra'; */
+    font-weight: bold;
+    padding-bottom: 0.75%;
 }
 
-#navImage{
-        max-height: auto;
-        overflow: hidden;
-        margin-bottom: 5px;
-        vertical-align: auto;
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    background-color:#004AAD;
+    height: 60px;
+    line-height: 30px;
+}
+
+nav .button-collapse i {
+    background-color:#004AAD;
+    height: 100px;
+    line-height: 30px;
+}
+
+nav .brand-logo { 
+    font-size: 32px; 
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        background-color:#004AAD;
+        height: 100px;
+        line-height: 30px;
+    }
+}
+
+
+
+
+
+
+
+#navImage {
+        vertical-align: middle;
       }
 
 
