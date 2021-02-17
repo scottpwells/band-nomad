@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import logoBand100 from "../../assets/images/nomadLogo100.jpg";
@@ -7,18 +7,21 @@ import { useHistory } from "react-router-dom";
 
 function LogIn() {
   const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleFormSubmit = (e, musicianData) => {
+  const handleFormSubmit = (e, musicianLogin) => {
     e.preventDefault();
-    axios
-      .post("/api/musician", musicianData)
-      .then((response) => {
-        console.log(response.data._id);
-        history.push(`/inProfile/${response.data._id}`);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    console.log(e);
+    // axios
+    //   .post("/api/musician", musicianLogin)
+    //   .then((response) => {
+    //     console.log(response.data._id);
+    //     history.push(`/inProfile/${response.data._id}`);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   return (
@@ -30,11 +33,21 @@ function LogIn() {
         alt="band nomad logo"
       />
       <h3 className="loginTitle">Login to Band Nomad</h3>
-      <form handleFormSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit}>
         <label for="Email">Email</label>
-        <input name="Email"></input>
+        <input
+          name="Email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        ></input>
         <label for="Password">Password</label>
-        <input name="Password"></input>
+        <input
+          name="Password"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        ></input>
         <button className="submitButton btn waves-effect waves-light">
           Submit
         </button>
