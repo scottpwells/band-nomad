@@ -10,7 +10,6 @@ const NavBar = () => {
     M.AutoInit();
   });
   function LoggedIn() {}
-  function LoggedOut() {}
   return (
     <nav>
       <div className="nav-wrapper">
