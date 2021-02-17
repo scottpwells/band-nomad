@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Profile = require("../models/musician");
-const { cloudinary } = require('./utils/cloudinary');
 
 router.get("/", (req, res) => {
   // console.log(req.query)
