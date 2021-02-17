@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Profile = require("../models/musician");
+const { cloudinary } = require('./utils/cloudinary');
 
 router.get("/", (req, res) => {
   // console.log(req.query)
@@ -36,29 +37,6 @@ router.get("/:id", (req, res) => {
       res.status(404).end();
     });
 });
-
-// router.get("/:id", (req, res) => {
-//   Profile.findById(req.params.id, function (err, profile) {
-//     if (err) {
-//       res.status(500).end();
-//     }
-//     console.log(profile);
-//     res.json(profile);
-//   });
-// });
-
-// router.get("/?instrument=drums", (req, res) => {
-//   Profile.find({
-//     instrument: { $regex: new RegExp(req.query.q, 'i')}
-//   })
-//     .then((foundProfile) => {
-//       res.json(foundProfile);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(404).end();
-//     });
-// });
 
 router.post("/", (req, res) => {
   console.log(req.body);
