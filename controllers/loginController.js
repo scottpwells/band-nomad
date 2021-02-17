@@ -4,4 +4,8 @@ const Profile = require("../models/musician");
 
 app.post("/login", passport.authenticate("local"), function (req, res) {
   console.log("logged in", req.body.username);
+  var userInfo = {
+    username: req.body.username,
+  };
+  res.send(userInfo);
 });
