@@ -9,3 +9,5 @@ router.route("/").post(passport.authenticate("local"), function (req, res) {
   };
   res.send(userInfo);
 });
+
+module.exports = router;
