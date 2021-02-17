@@ -47,6 +47,8 @@ const MusicianController = require("./controllers/musicianController");
 
 const ContactController = require("./controllers/contactController");
 
+const LoginController = require("./controllers/loginController");
+
 app.use(express.static("client/build"));
 
 app.get("/api/config", (req, res) => {
@@ -65,6 +67,8 @@ app.get("/api/data/session", (req, res) => {
 app.use("/api/musician", MusicianController);
 
 app.use("/api/contact", ContactController);
+
+app.use("/api/login", LoginController);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
