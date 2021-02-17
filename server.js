@@ -14,17 +14,18 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 app.use(
-  session ({
-    secret: 'donuts-opossum',
+  session({
+    secret: "donuts-opossum",
     resave: false,
     saveUninitialized: false,
   })
-)
-app.use(passport.session())
-app.use( (req, res, next) => {
-  console.log('req.session', req.session);
-  return next()
-})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use((req, res, next) => {
+  console.log("req.session", req.session);
+  return next();
+});
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/band-nomad", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -55,12 +56,12 @@ app.get("/api/config", (req, res) => {
 });
 
 app.get("/api/data/session", (req, res) => {
-  console.log('===== user!! =====')
+  console.log("===== user!! =====");
   console.log(req.session.passport.user);
-  if(req.session.passport.user) {
-    res.json({ user: req.session.passport.user._id})
+  if (req.session.passport.user) {
+    res.json({ user: req.session.passport.user._id });
   }
-})
+});
 app.use("/api/musician", MusicianController);
 
 app.use("/api/contact", ContactController);
