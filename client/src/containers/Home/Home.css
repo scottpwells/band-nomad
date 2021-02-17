@@ -1,0 +1,30 @@
+
+
+body{
+background-color:#008FC1;
+
+}
+
+#hero{
+    width: 100%;
+    /* position: absolute; */
+    bottom: 0;
+    height: 100%;
+}
+
+select{
+    position: relative;
+    background-color:#071623;
+    margin-top: 100px ;
+    border-style: solid;
+    border-color:#F64691;
+    color:#FFFF;
+    text-shadow:#004AAD;
+    font-weight: bold;
+    font-family:'ultra'
+}
+
+
+
+
+
