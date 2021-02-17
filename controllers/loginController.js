@@ -3,5 +3,5 @@ const router = express.Router();
 const Profile = require("../models/musician");
 
 app.post("/login", passport.authenticate("local"), function (req, res) {
-  res.redirect("/");
+  console.log("logged in", req.body.username);
 });
