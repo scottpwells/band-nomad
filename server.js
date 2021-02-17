@@ -14,8 +14,8 @@ app.use(express.static("client/build"));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/band-nomad", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
   useCreateIndex: true,
+  useFindAndModify: false,
 });
 
 const connection = mongoose.connection;

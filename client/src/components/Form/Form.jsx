@@ -13,9 +13,24 @@ const Form = ({ buttonText, handleFormSubmit }) => {
   const [instrument, setInstrument] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [bio, setBio] = useState("");
-  
-
+  const [fileInputState, setFileInputState] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
+  const [previewSource, setPreviewSource] = useState("");
   const { id } = useParams();
+
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
+  };
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
+  };
 
   useEffect(() => {
     console.log(id);
@@ -76,7 +91,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="Name"
               id="name"
               type="text"
               name="name"
@@ -91,7 +105,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="Contact Note"
               id="contact"
               type="text"
               name="contact"
@@ -106,7 +119,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="Phone Number"
               id="phone"
               type="number"
               name="phone"
@@ -128,21 +140,20 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              />
-               <label htmlFor="email">Email</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  placeholder="City"
-                  id="city"
-                  type="text"
-                  name="city"
-                  value={city}
-                  onChange={(e) => {
-                    setCity(e.target.value);
-                  }}
+            />
+            <label htmlFor="email">Email</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              id="city"
+              type="text"
+              name="city"
+              value={city}
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}
             />
             <label htmlFor="City">City</label>
           </div>
@@ -150,52 +161,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="Genre"
-              id="genre"
-              type="text"
-              name="genre"
-              value={genre}
-              onChange={(e) => {
-                setGenre(e.target.value);
-              }}
-            />
-            <label htmlFor="Genre">Genre</label>
-          </div>
-        </div>
-        <div className="row">
-          <div className="input-field col s12">
-            <input
-              placeholder="Instrument"
-              id="instrument"
-              type="text"
-              name="instrument"
-              value={instrument}
-              onChange={(e) => {
-                setInstrument(e.target.value);
-              }}
-            />
-            <label htmlFor="Instrument">Instrument</label>
-          </div>
-        </div>
-        <div className="row">
-          <div className="input-field col s12">
-            <input
-              placeholder="Image URL"
-              id="imageURL"
-              type="text"
-              name="imageURL"
-              value={imageURL}
-              onChange={(e) => {
-                setImageURL(e.target.value);
-              }}
-            />
-            <label htmlFor="Image URL">Image URL</label>
-          </div>
-        </div>
-        <div className="row">
-          <div className="input-field col s12">
-            <input
-              placeholder="Bio"
               id="bio"
               type="text"
               name="bio"
@@ -204,16 +169,73 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setBio(e.target.value);
               }}
             />
-            <label htmlFor="Image URL">Bio</label>
+            <label htmlFor="bio">Bio</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              id="imageURL"
+              type="file"
+              name="imageURL"
+              value={fileInputState}
+              onChange={handleFileInputChange}
+            />
+            <label htmlFor="Image URL">Image URL</label>
+            {previewSource && (
+              <img
+                src={previewSource}
+                alt="chosen"
+                style={{ height: "100px" }}
+              />
+            )}
           </div>
         </div>
         <div className="row">
           <div className="col s12">
-            {/* <Link to={`/inProfile/${_id}`}>
-              <button className="btn waves-effect waves-light">
-                {buttonText}
-              </button>
-            </Link> */}
+            <select
+              id="instrument"
+              value={instrument}
+              onChange={(e) => {
+                setInstrument(e.target.value);
+              }}
+              className="browser-default"
+            >
+              <option value="" disabled selected>
+                Choose Instrument
+              </option>
+              <option value="bass">Bass Player</option>
+              <option value="guitar">Guitar Player</option>
+              <option value="drums">Drummer</option>
+              <option value="singer">Lead Singer</option>
+            </select>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <select
+              placeholder="Genre"
+              id="genre"
+              name="genre"
+              value={genre}
+              onChange={(e) => {
+                setGenre(e.target.value);
+              }}
+              className="browser-default"
+            >
+              <option value="" disabled selected>
+                Choose a Genre
+              </option>
+              <option value="blues">Rhythm and Blues</option>
+              <option value="country">Country Music</option>
+              <option value="jazz">Jazz Music</option>
+              <option value="pop">Pop Music</option>
+              <option value="rock">Rock Music</option>
+            </select>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s12">
             <button className="btn waves-effect waves-light">
               {buttonText}
             </button>
