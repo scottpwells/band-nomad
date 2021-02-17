@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import logoBand100 from "../../assets/images/nomadLogo100.jpg";
 import M from "materialize-css/dist/js/materialize.min.js";
+import axios from "axios";
+// import react-cookie
 
 const NavBar = () => {
   useEffect(() => {
@@ -10,7 +12,23 @@ const NavBar = () => {
     M.AutoInit();
   });
   function LoggedIn() {
-    if (document.cookie.username === "") {
+    function handleClick(e) {
+      e.preventDefault();
+      axios
+        .get("api/logout")
+        .then(function (response) {
+          console.log(typeof response.status);
+          if (response.status === 200) {
+            console.log("here");
+            document.cookie = "";
+          }
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+    if (document.cookie === "") {
       return (
         <NavLink
           to="/login"
@@ -21,12 +39,12 @@ const NavBar = () => {
       );
     } else {
       return (
-        <NavLink
-          to="/logout"
+        <a
+          onClick={handleClick}
           activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
         >
           Logout
-        </NavLink>
+        </a>
       );
     }
   }
@@ -116,12 +134,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/Login"
-            activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
-          >
-            Login
-          </NavLink>
+          <LoggedIn></LoggedIn>
         </li>
         <li>
           <NavLink
