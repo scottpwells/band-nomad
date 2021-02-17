@@ -18,13 +18,16 @@ const CreateProfile = () => {
         console.log(err);
       });
   };
-  
+
   return (
     <div className="container">
       <div className="row">
         <div className="col s12 center-align">
           <h1>create your profile.</h1>
-          <Form handleFormSubmit={handleFormSubmit} buttonText="Create Profile"/>
+          <Form
+            handleFormSubmit={handleFormSubmit}
+            buttonText="Create Profile"
+          />
         </div>
       </div>
     </div>

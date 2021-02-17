@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
     queryParams.city = req.query.city;
   }
 
-  console.log(queryParams)
+  console.log(queryParams);
   Profile.find(queryParams)
     .then((profile) => {
       res.json(profile);

@@ -13,8 +13,24 @@ const Form = ({ buttonText, handleFormSubmit }) => {
   const [instrument, setInstrument] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [bio, setBio] = useState("");
-
+  const [fileInputState, setFileInputState] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
+  const [previewSource, setPreviewSource] = useState("");
   const { id } = useParams();
+
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
+  };
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
+  };
 
   useEffect(() => {
     console.log(id);
@@ -75,7 +91,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-
               id="name"
               type="text"
               name="name"
@@ -90,7 +105,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-
               id="contact"
               type="text"
               name="contact"
@@ -105,7 +119,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-
               id="phone"
               type="number"
               name="phone"
@@ -134,7 +147,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-
               id="city"
               type="text"
               name="city"
@@ -149,7 +161,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-
               id="bio"
               type="text"
               name="bio"
@@ -164,16 +175,20 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
-
               id="imageURL"
-              type="text"
+              type="file"
               name="imageURL"
-              value={imageURL}
-              onChange={(e) => {
-                setImageURL(e.target.value);
-              }}
+              value={fileInputState}
+              onChange={handleFileInputChange}
             />
             <label htmlFor="Image URL">Image URL</label>
+            {previewSource && (
+              <img
+                src={previewSource}
+                alt="chosen"
+                style={{ height: "100px" }}
+              />
+            )}
           </div>
         </div>
         <div className="row">
@@ -194,30 +209,29 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               <option value="drums">Drummer</option>
               <option value="singer">Lead Singer</option>
             </select>
-
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
-          <select
-                placeholder="Genre"
-                id="genre"
-                name="genre"
-                value={genre}
-                onChange={(e) => {
-                  setGenre(e.target.value);
-                }}
-                className="browser-default"
-              >
-                <option value="" disabled selected>
-                  Choose a Genre
-                </option>
-                <option value="blues">Rhythm and Blues</option>
-                <option value="country">Country Music</option>
-                <option value="jazz">Jazz Music</option>
-                <option value="pop">Pop Music</option>
-                <option value="rock">Rock Music</option>
-              </select>
+            <select
+              placeholder="Genre"
+              id="genre"
+              name="genre"
+              value={genre}
+              onChange={(e) => {
+                setGenre(e.target.value);
+              }}
+              className="browser-default"
+            >
+              <option value="" disabled selected>
+                Choose a Genre
+              </option>
+              <option value="blues">Rhythm and Blues</option>
+              <option value="country">Country Music</option>
+              <option value="jazz">Jazz Music</option>
+              <option value="pop">Pop Music</option>
+              <option value="rock">Rock Music</option>
+            </select>
           </div>
         </div>
         <div className="row">
