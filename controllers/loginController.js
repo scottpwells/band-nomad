@@ -4,7 +4,7 @@ const Profile = require("../models/musician");
 
 app.post(
   "/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
+  passport.authenticate("local", {"/login" }),
   function (req, res) {
     res.redirect("/");
   }
