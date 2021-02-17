@@ -12,16 +12,17 @@ function LogIn() {
 
   const handleFormSubmit = (e, musicianLogin) => {
     e.preventDefault();
-    console.log(e);
-    // axios
-    //   .post("/api/musician", musicianLogin)
-    //   .then((response) => {
-    //     console.log(response.data._id);
-    //     history.push(`/inProfile/${response.data._id}`);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    console.log(email, password);
+    axios
+      .post("/api/login", { email, password })
+      .then((response) => {
+        console.log(response.data);
+        document.cookie = response.data.username;
+        history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
