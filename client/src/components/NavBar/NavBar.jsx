@@ -9,7 +9,27 @@ const NavBar = () => {
     //initialize materialize
     M.AutoInit();
   });
-  function LoggedIn() {}
+  function LoggedIn() {
+    if (document.cookie.username === "") {
+      return (
+        <NavLink
+          to="/login"
+          activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+        >
+          Login
+        </NavLink>
+      );
+    } else {
+      return (
+        <NavLink
+          to="/logout"
+          activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+        >
+          Logout
+        </NavLink>
+      );
+    }
+  }
   return (
     <nav>
       <div className="nav-wrapper">
