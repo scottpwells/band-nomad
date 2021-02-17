@@ -2,8 +2,25 @@ import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import logoBand100 from "../../assets/images/nomadLogo100.jpg";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function LogIn() {
+  const history = useHistory();
+
+  const handleFormSubmit = (e, musicianData) => {
+    e.preventDefault();
+    axios
+      .post("/api/musician", musicianData)
+      .then((response) => {
+        console.log(response.data._id);
+        history.push(`/inProfile/${response.data._id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="login col s6">
       <img
@@ -13,13 +30,15 @@ function LogIn() {
         alt="band nomad logo"
       />
       <h3 className="loginTitle">Login to Band Nomad</h3>
-      <label for="Email">Email</label>
-      <input name="Email"></input>
-      <label for="Password">Password</label>
-      <input name="Password"></input>
-      <button className="submitButton btn waves-effect waves-light">
-        Submit
-      </button>
+      <form handleFormSubmit={handleFormSubmit}>
+        <label for="Email">Email</label>
+        <input name="Email"></input>
+        <label for="Password">Password</label>
+        <input name="Password"></input>
+        <button className="submitButton btn waves-effect waves-light">
+          Submit
+        </button>
+      </form>
     </div>
   );
 }
