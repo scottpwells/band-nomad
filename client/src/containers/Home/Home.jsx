@@ -10,6 +10,9 @@ const Home = () => {
   const [city, setCity] = useState("");
   const [musicians, setMusicians] = useState([]);
 
+
+  
+
   // const handleInputChange = (event) => {
   //   const { value } = event.target;
   //   setInstrument(value);
@@ -51,18 +54,18 @@ const Home = () => {
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
-          <tr className="bg-colorizinger">
-            <td style={{ maxWidth: "25px" }}>
+          <tr className="bg-colorizinger" id={musician._id}>
+            <td style={{maxWidth: "25px",}}>
               <img
                 src={musician.imageURL}
-                style={{ width: "30%" }}
+                style={{width: "30%",}}
                 alt={musician.name}
               />
             </td>
-            <td style={{ maxWidth: "30px" }}>{musician.name}</td>
-            <td style={{ maxWidth: "25px" }}>{musician.instrument}</td>
-            <td style={{ maxWidth: "25px" }}>{musician.genre}</td>
-            <td style={{ maxWidth: "25px" }}>{musician.city}</td>
+            <td style={{maxWidth: "30px",}}>{musician.name}</td>
+            <td style={{maxWidth: "25px",}}>{musician.instrument}</td>
+            <td style={{maxWidth: "25px",}}>{musician.genre}</td>
+            <td style={{maxWidth: "25px",}}>{musician.city}</td>
             <td>
               {" "}
               <Link to={`/inProfile/${musician._id}`}>
@@ -77,7 +80,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container background">
         <div className="row">
           <div className="row">
             <div className="row">
@@ -91,8 +94,8 @@ const Home = () => {
                     }}
                     className="browser-default"
                   >
-                    <option value="" disabled selected>
-                      Find Your Band Member
+                    <option value="" disabled>
+                      Find a Band Member
                     </option>
                     <option value="bass">Bass Player</option>
                     <option value="guitar">Guitar Player</option>
@@ -112,24 +115,27 @@ const Home = () => {
         </div>
       </div>
 
-      <div>
+      <div className="background">
         <table>
-          <tr>
-            <th>Profile Pic</th>
-            <th>Name</th>
-            <th>Instrument</th>
-            <th>Genre</th>
-            <th>City</th>
-          </tr>
-          {musicianRows}
+          <thead>
+            <tr>
+              <th>Profile Pic</th>
+              <th>Name</th>
+              <th>Instrument</th>
+              <th>Genre</th>
+              <th>City</th>
+            </tr>
+          </thead>
+          <tbody>{musicianRows}</tbody>
         </table>
-        <img
-          className="hero-text"
-          id="hero"
-          src={emptyStage}
-          alt="empty stage with guitar drum an keyboards signifying find your band"
-        />
       </div>
+
+      <img
+        className="hero-text"
+        id="hero"
+        src={emptyStage}
+        alt="empty stage with guitar drum an keyboards signifying find your band"
+      />
     </>
   );
 };

@@ -15,11 +15,11 @@ useEffect(() => {
     <nav>
     <div className="nav-wrapper">
       <div className="container-fluid" id="navContainer">
-      <Link to="/" className="brand-logo center blue-text text-darken-2 img-fluid"><img style={{Height: "auto",}} id="navImage" src={logoBand100}
-       alt="band nomad logo"/></Link>
-      <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i class="material-icons">menu</i></Link>
+      <Link to="/" className="brand-logo center blue-text text-darken-2"><img style={{marginBottom: "0",}} id="navImage" src={logoBand100}
+      className="image-fluid" alt="band nomad logo"/></Link>
+      <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
     
-    <ul id="link-align" class="right hide-on-med-and-down">
+    <ul id="link-align" className="right hide-on-med-and-down">
     <li><NavLink 
     to="/" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
     >Home</NavLink></li>
@@ -63,7 +63,7 @@ useEffect(() => {
    
 <ul className="sidenav" id="mobile-demo">
 <li><NavLink to="/" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}>Home</NavLink></li>
-<li><NavLink to="/Create" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}>Create Profile</NavLink></li>
+<li><NavLink to="/Create" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}>Sign Up</NavLink></li>
 <li><NavLink to="/Contact" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}>Contact</NavLink></li>
 <li><NavLink to="/Login" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}>Login</NavLink></li>
 <li><NavLink to="/Update" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}>My Account</NavLink></li>
