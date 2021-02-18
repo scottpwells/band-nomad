@@ -144,7 +144,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
             <label htmlFor="email">Email</label>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="input-field col s12">
             <input
               id="city"
@@ -156,6 +156,28 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               }}
             />
             <label htmlFor="City">City</label>
+          </div>
+        </div> */}
+        <div className="row">
+          <div className="col s12">
+            <select
+              id="city"
+              value={city}
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}
+              className="browser-default"
+            >
+              <option value="" disabled selected>
+                Choose your city
+              </option>
+              <option value="Atlanta">Atlanta</option>
+              <option value="Midtown">Midtown</option>
+              <option value="Buckhead">Buckhead</option>
+              <option value="Decatur">Decatur</option>
+              <option value="Alpharetta">Alpharetta</option>
+              <option value="Marrietta">Marrietta</option>
+            </select>
           </div>
         </div>
         <div className="row">

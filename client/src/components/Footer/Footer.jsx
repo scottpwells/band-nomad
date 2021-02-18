@@ -8,7 +8,7 @@ const Footer = () => {
             <footer>
             <div className="footer-copyright">
             <div className="container">
-            <h5 style={{textAlign:"center",opacity: "0.3"}}> © 2021 Copyright </h5>
+            <h5 style={{textAlign:"center",}}> © 2021 Copyright </h5>
             </div>
           </div>
         </footer>
