@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar.jsx"
-import Upload from "./components/Upload/Upload.jsx"
+// import Upload from "./components/Upload/Upload.jsx"
 import ContactPage from "./containers/ContactPage/ContactPage";
 import Create from "./containers/CreateProfile/CreateProfile";
 import Login from "./containers/Login/Login";
@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/update" component={Update} />
           <Route path="/inProfile/:id" component={InProfile} />
           <Route exact path="/update/:id" component={Update} />
-          <Route exact path="/upload" component={Upload} />
+          {/* <Route exact path="/upload" component={Upload} /> */}
         </Switch>
         <Footer/>
       </Router>
