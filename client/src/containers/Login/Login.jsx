@@ -7,10 +7,11 @@ import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 function LogIn() {
-  const [cookies, setCookie] = useCookies(["name"]);
+  const [cookies, setCookie] = useCookies(["username"]);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // console.log(cookies["username"]);
 
   const handleFormSubmit = (e, musicianLogin) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ function LogIn() {
       .post("/api/login", { email, password })
       .then((response) => {
         console.log(response.data);
-        document.cookie = response.data.username;
+        setCookie("username", response.data.username);
         history.push("/");
       })
       .catch((err) => {

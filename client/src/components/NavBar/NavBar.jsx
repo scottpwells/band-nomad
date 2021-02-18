@@ -4,14 +4,18 @@ import "./NavBar.css";
 import logoBand100 from "../../assets/images/nomadLogo100.jpg";
 import M from "materialize-css/dist/js/materialize.min.js";
 import axios from "axios";
-// import react-cookie
+import { useCookies } from "react-cookie";
+import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
+  const [cookies, setCookie] = useCookies(["username"]);
   useEffect(() => {
     //initialize materialize
     M.AutoInit();
   });
   function LoggedIn() {
+    const [cookies, setCookie] = useCookies(["username"]);
+    const history = useHistory();
     function handleClick(e) {
       e.preventDefault();
       axios
@@ -20,7 +24,8 @@ const NavBar = () => {
           console.log(typeof response.status);
           if (response.status === 200) {
             console.log("here");
-            // document.cookie = "";
+            setCookie("username", "");
+            history.push("/login");
           }
           console.log(response.data);
         })
@@ -28,7 +33,8 @@ const NavBar = () => {
           console.log(error);
         });
     }
-    if (document.cookie === "") {
+    console.log(cookies);
+    if (cookies.username === "") {
       return (
         <NavLink
           to="/login"
