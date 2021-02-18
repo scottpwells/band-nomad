@@ -41,19 +41,19 @@ app.get("/api/config", (req, res) => {
     success: true,
   });
 });
-app.post("/api/upload", async (req, res) => {
+// app.post("/api/upload", async (req, res) => {
 
-  const fileStr = req.body.data;
-  const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-    folder: "band_nomad",
-  });
-  console.log(uploadResponse);
-  let secureURL = uploadResponse.secure_url;
-  console.log(secureURL);
-  res.json(secureURL);
+//   const fileStr = req.body.data;
+//   const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+//     folder: "band_nomad",
+//   });
+//   console.log(uploadResponse);
+//   let secureURL = uploadResponse.secure_url;
+//   console.log(secureURL);
+//   res.json(secureURL);
 
 
-});
+// });
 // app.post("/api/upload", async (req, res) => {
 //   try {
 //     const fileStr = req.body.data;

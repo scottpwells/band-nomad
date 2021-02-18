@@ -167,6 +167,20 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
+              id="imageURL"
+              type="text"
+              name="imageURL"
+              value={imageURL}
+              onChange={(e) => {
+                setImageURL(e.target.value);
+              }}
+            />
+            <label htmlFor="imageURL">ImageURL</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
               id="bio"
               type="text"
               name="bio"
@@ -178,7 +192,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
             <label htmlFor="bio">Bio</label>
           </div>
         </div>
-        
+
         <div className="row">
           <div className="col s12">
             <select

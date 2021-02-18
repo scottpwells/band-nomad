@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavBar from "./Components/NavBar/NavBar.jsx"
-// import Upload from "./Components/Upload/Upload.jsx"
+import NavBar from "./components/NavBar/NavBar.jsx"
+// import Upload from "./components/Upload/Upload.jsx"
 import ContactPage from "./containers/ContactPage/ContactPage";
 import Create from "./containers/CreateProfile/CreateProfile";
 import Login from "./containers/Login/Login";
