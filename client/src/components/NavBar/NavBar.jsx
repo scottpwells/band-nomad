@@ -25,7 +25,7 @@ const NavBar = () => {
           if (response.status === 200) {
             console.log("here");
             setCookie("username", "");
-            history.push("/login");
+            history.push("/");
           }
           console.log(response.data);
         })
@@ -98,12 +98,7 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/login"
-                activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
-              >
-                Login
-              </NavLink>
+              <LoggedIn></LoggedIn>
             </li>
             <li>
               <NavLink

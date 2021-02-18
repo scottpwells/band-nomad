@@ -22,7 +22,12 @@ function ConditionalNavBar() {
 function ConditionalLogin() {
   const [cookies, setCookie] = useCookies(["username"]);
   if (cookies.username === "") {
-    return <Login></Login>;
+    return (
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/create" component={Create} />
+      </Switch>
+    );
   } else {
     return (
       <Switch>
