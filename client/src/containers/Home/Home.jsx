@@ -6,7 +6,7 @@ import "../Home/Home.css";
 const Home = () => {
   const [instrument, setInstrument] = useState("");
   const [genre, setGenre] = useState("");
-  // const [city, setCity] = useState("");
+  const [city, setCity] = useState("");
   const [musicians, setMusicians] = useState([]);
 
 
@@ -23,6 +23,9 @@ const Home = () => {
     }
     if (genre) {
       baseURL = baseURL + `genre=${genre}&`;
+    }
+    if (city) {
+      baseURL = baseURL + `city=${city}&`;
     }
 
     // if (city) {
@@ -45,22 +48,26 @@ const Home = () => {
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
+        
           <tr className="bg-colorizinger" id={musician._id}>
-            <td style={{ maxWidth: "25px" }}>
+            <td style={{ maxWidth: "50px" }}>
               <img
                 src={musician.imageURL}
                 style={{ width: "30%" }}
                 alt={musician.name}
               />
             </td>
-            <td style={{ maxWidth: "30px" }}>{musician.name}</td>
-            <td style={{ maxWidth: "25px" }}>{musician.instrument}</td>
-            <td style={{ maxWidth: "25px" }}>{musician.genre}</td>
-            <td style={{ maxWidth: "25px" }}>{musician.city}</td>
+            <td style={{ maxWidth: "50px" }}>{musician.name}</td>
+            <td style={{ maxWidth: "50px" }}>{musician.instrument}</td>
+            <td style={{ maxWidth: "50px" }}>{musician.genre}</td>
+            <td style={{ maxWidth: "50px" }}>{musician.city}</td>
             <td>
               {" "}
               <Link to={`/inProfile/${musician._id}`}>
-                <button className="btn waves-effect waves-light">
+                <button
+                  className="btn waves-effect"
+                  style={{ backgroundColor: "#004AAD", color: "ffff" }}
+                >
                   view profile
                 </button>
               </Link>
@@ -76,6 +83,26 @@ const Home = () => {
           <div className="col s12">
             <div className="Row">
               <div className="col s12">
+                <ul id="uHome">
+                  <h1
+                    style={{
+                      textAlign: "center",
+                      fontSize: "54px",
+                      fontFamily: "Arial",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Getting Started
+                  </h1>
+                  <li id="startList" style={{ listStyleType: "disc" }}>Start a band</li>
+                  <li id="startList" style={{ listStyleType: "disc" }}>
+                    Add a new band member
+                  </li>
+                  <li id="startList" style={{ listStyleType: "disc" }}>
+                    Connect with local musicians
+                  </li>
+                </ul>
+
                 <select
                   id="instrument"
                   value={instrument}
@@ -85,7 +112,7 @@ const Home = () => {
                   className="browser-default"
                 >
                   <option value="" disabled selected>
-                    Choose Instrument
+                    Musician Instrument
                   </option>
                   <option value="bass">Bass Player</option>
                   <option value="guitar">Guitar Player</option>
@@ -94,7 +121,7 @@ const Home = () => {
                 </select>
               </div>
             </div>
-            <div className="row">
+            <div className="row" style={{ marginBottom: 0 }}>
               <div className="col s12">
                 <select
                   placeholder="Genre"
@@ -107,7 +134,7 @@ const Home = () => {
                   className="browser-default"
                 >
                   <option value="" disabled selected>
-                    Choose a Genre
+                    Musician Genre
                   </option>
                   <option value="blues">Rhythm and Blues</option>
                   <option value="country">Country Music</option>
@@ -117,28 +144,65 @@ const Home = () => {
                 </select>
               </div>
             </div>
+            <div className="row">
+              <div className="col s12">
+                <select
+                  placeholder="City"
+                  id="city"
+                  name="city"
+                  value={city}
+                  onChange={(e) => {
+                    setCity(e.target.value);
+                  }}
+                  className="browser-default"
+                >
+                  <option value="" disabled selected>
+                    City
+                  </option>
+                  <option value="Atlanta">Atlanta</option>
+                  <option value="Midtown">Midtown</option>
+                  <option value="Buckhead">Buckhead</option>
+                  <option value="Decatur">Decatur</option>
+                  <option value="Alpharetta">Alpharetta</option>
+                  <option value="Marrietta">Marrietta</option>
+                </select>
+              </div>
+            </div>
             <button
               onClick={handleFormSubmit}
-              className="btn waves-effect waves-light"
+              className="btn waves-effect"
+              style={{ backgroundColor: "#004AAD", color: "ffff" }}
             >
               Search Profiles
             </button>
-            <div className="row">
-              <div className="background col s12">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Profile Pic</th>
-                      <th>Name</th>
-                      <th>Instrument</th>
-                      <th>Genre</th>
-                      <th>City</th>
-                    </tr>
-                  </thead>
-                  <tbody>{musicianRows}</tbody>
-                </table>
+            <div
+              className="container"
+              style={{
+                width: "100%",
+                marginTop: "10px",
+                backgroundColor: "#ffff",
+                opacity: "0.90",
+              }}
+            >
+              <div className="row">
+                <div
+                  className="background col s12"
+                  style={{ fontSize: "18px" }}
+                >
+                  <table className="responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Profile Image</th>
+                        <th>Name</th>
+                        <th>Instrument</th>
+                        <th>Genre</th>
+                        <th>City</th>
+                      </tr>
+                    </thead>
+                    <tbody>{musicianRows}</tbody>
+                  </table>
+                </div>
               </div>
-
             </div>
           </div>
         </div>

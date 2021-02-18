@@ -5,7 +5,7 @@ nav {
     line-height: 30px;
     /* font-family: 'ultra'; */
     font-weight: bold;
-    padding-bottom: 0.75%;
+
 }
 
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
@@ -29,13 +29,9 @@ nav .brand-logo {
         background-color:#004AAD;
         height: 100px;
         line-height: 30px;
+     
     }
 }
-
-
-
-
-
 
 
 #navImage {
@@ -53,3 +49,6 @@ ul{
     position: relative;
     align-content: left;
 }
+
+
+
