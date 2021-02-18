@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 // import { Image } from "cloudinary-react";
 import axios from "axios";
+import { json } from "express";
 
 const Upload = () => {
   const [fileInputState, setFileInputState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const [selectedFile, setSelectedFile] = useState();
-  const [imageIds, setImageIds] = useState();
+  const [imageURL, setImageURL] = useState();
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -37,30 +38,29 @@ const Upload = () => {
   };
 
   const uploadImage = async (base64EncodedImage) => {
-    try {
-      await fetch("/api/upload", {
+  
+     let response = await fetch("/api/upload", {
         method: "POST",
         body: JSON.stringify({ data: base64EncodedImage }),
         headers: { "Content-Type": "application/json" },
-      });
+      })
+      console.log(response.json());;
+
       setFileInputState("");
       setPreviewSource("");
-      loadImages();
-    } catch (err) {
-      console.error(err);
-    }
+   
   };
-  const loadImages = () => {
-    axios
-      .get(`api/upload/secureURL`)
-      .then((response) => {
-        console.log(response);
-        setImageIds(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const loadImages = () => {
+  //   axios
+  //     .get(`api/upload/secureURL`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       setImageIds(response.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <div className="container">
@@ -79,14 +79,14 @@ const Upload = () => {
             <button className="btn waves-effect waves-light" type="submit">
               upload
             </button>
-            <button
+            {/* <button
               className="btn waves-effect waves-light"
               onClick={() => {
                 loadImages();
               }}
             >
               preview
-            </button>
+            </button> */}
             {previewSource && (
               <img
                 src={previewSource}
