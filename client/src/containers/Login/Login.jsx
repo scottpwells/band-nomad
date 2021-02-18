@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import logoBand100 from "../../assets/images/nomadLogo100.jpg";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 function LogIn() {
+  const [cookies, setCookie] = useCookies(["name"]);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
