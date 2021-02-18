@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+// import { Image } from "cloudinary-react";
+import axios from "axios";
 
 const Upload = () => {
-    const [fileInputState, setFileInputState] = useState('');
-    const [previewSource, setPreviewSource] = useState('');
-    const [selectedFile, setSelectedFile] = useState();
-    const [successMsg, setSuccessMsg] = useState('');
-    const [errMsg, setErrMsg] = useState('');
+  const [fileInputState, setFileInputState] = useState("");
+  const [previewSource, setPreviewSource] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
+  const [imageIds, setImageIds] = useState();
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -28,52 +29,87 @@ const Upload = () => {
     const reader = new FileReader();
     reader.readAsDataURL(selectedFile);
     reader.onloadend = () => {
-        uploadImage(reader.result);
+      uploadImage(reader.result);
     };
     reader.onerror = () => {
-        console.error('AHHHHHHHH!!');
-        setErrMsg('something went wrong!');
+      console.error("error");
     };
-};
-const uploadImage = async (base64EncodedImage) => {
+  };
+
+  const uploadImage = async (base64EncodedImage) => {
     try {
-        await fetch('/api/upload', {
-            method: 'POST',
-            body: JSON.stringify({ data: base64EncodedImage }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-        setFileInputState('');
-        setPreviewSource('');
-        setSuccessMsg('Image uploaded successfully');
+      await fetch("/api/upload", {
+        method: "POST",
+        body: JSON.stringify({ data: base64EncodedImage }),
+        headers: { "Content-Type": "application/json" },
+      });
+      setFileInputState("");
+      setPreviewSource("");
+      loadImages();
     } catch (err) {
-        console.error(err);
-        setErrMsg('Something went wrong!');
+      console.error(err);
     }
-};
+  };
+  const loadImages = () => {
+    axios
+      .get(`api/upload/secureURL`)
+      .then((response) => {
+        console.log(response);
+        setImageIds(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="container">
       <div className="row">
         <div className="input-field col s12">
-        {/* <label htmlFor="Image URL">Image URL</label> */}
-        <h6>Upload an Image</h6>
-            <form onSubmit={handleSubmitFile}>
+          {/* <label htmlFor="Image URL">Image URL</label> */}
+          <h6>Upload an Image</h6>
+          <form onSubmit={handleSubmitFile}>
             <input
-            id="imageURL"
-            type="file"
-            name="imageURL"
-            value={fileInputState}
-            onChange={handleFileInputChange}
-          />
-          <button className="btn" type="submit">
-                    upload
-                </button>
-                {previewSource && (
-            <img src={previewSource} alt="chosen" style={{ height: "100px" }} />
-          )}
-        
-            </form>
-         
+              id="imageURL"
+              type="file"
+              name="imageURL"
+              value={fileInputState}
+              onChange={handleFileInputChange}
+            />
+            <button className="btn waves-effect waves-light" type="submit">
+              upload
+            </button>
+            <button
+              className="btn waves-effect waves-light"
+              onClick={() => {
+                loadImages();
+              }}
+            >
+              preview
+            </button>
+            {previewSource && (
+              <img
+                src={previewSource}
+                alt="chosen"
+                style={{ height: "100px" }}
+              />
+            )}
+          </form>
+          <div>
+            <h1 className="title">Cloudinary Gallery</h1>
+            <div>
+              {/* {imageIds &&
+                imageIds.map((imageId, index) => (
+                  <Image
+                    key={index}
+                    cloudName="denniscloud"
+                    publicId={imageId}
+                    width="300"
+                    crop="scale"
+                  />
+                ))} */}
+            </div>
+          </div>
         </div>
       </div>
     </div>
