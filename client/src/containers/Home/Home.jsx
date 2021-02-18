@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import emptyStage from "../../assets/images/nomadHero470.png";
 import "../Home/Home.css";
 
 const Home = () => {
@@ -10,11 +9,6 @@ const Home = () => {
   // const [city, setCity] = useState("");
   const [musicians, setMusicians] = useState([]);
 
-  // const handleInputChange = (event) => {
-  //   const { value } = event.target;
-  //   setInstrument(value);
-  //   console.log(value);
-  // };
 
   const handleFormSubmit = (event) => {
     // When the form is submitted, prevent its default behavior,
