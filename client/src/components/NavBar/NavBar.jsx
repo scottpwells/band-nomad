@@ -20,7 +20,7 @@ const NavBar = () => {
           console.log(typeof response.status);
           if (response.status === 200) {
             console.log("here");
-            document.cookie = "";
+            // document.cookie = "";
           }
           console.log(response.data);
         })
