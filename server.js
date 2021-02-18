@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const passport = require("./validation/index.js");
 const session = require("express-session");
+const cookiesMiddleware = require("universal-cookie-express");
 
 const app = express();
 

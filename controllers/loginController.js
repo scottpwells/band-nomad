@@ -8,6 +8,7 @@ router.route("/").post(passport.authenticate("local"), function (req, res) {
   var userInfo = {
     username: req.body.email,
   };
+  res.cookie("hello world", "hello world");
   res.send(userInfo);
 });
 
