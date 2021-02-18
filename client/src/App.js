@@ -41,6 +41,7 @@ function ConditionalLogin() {
         <Route exact path="/update/:id" component={Update} />
         {/* <Route exact path="/upload" component={Upload} /> */}
       </Switch>
+      
     );
   }
 }
@@ -52,7 +53,7 @@ function App() {
         <ConditionalNavBar></ConditionalNavBar>
 
         <ConditionalLogin></ConditionalLogin>
-        <Footer />
+        {/* <Footer/> */}
       </Router>
     </div>
   );
