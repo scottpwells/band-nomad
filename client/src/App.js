@@ -7,12 +7,22 @@ import Home from "./containers/Home/Home";
 import InProfile from "./containers/InProfile/InProfile";
 import Update from "./containers/UpdateProfile/UpdateProfile";
 import Footer from "./components/Footer/Footer";
+import { useCookies } from "react-cookie";
+
+function ConditionalNavBar() {
+  const [cookies, setCookie] = useCookies(["username"]);
+  if (cookies.username === "") {
+    return null;
+  } else {
+    return <NavBar></NavBar>;
+  }
+}
 
 function App() {
   return (
     <div>
       <Router>
-        <NavBar />
+        <ConditionalNavBar></ConditionalNavBar>
 
         <Switch>
           <Route exact path="/" component={Home} />
