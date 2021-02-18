@@ -37,29 +37,6 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// router.get("/:id", (req, res) => {
-//   Profile.findById(req.params.id, function (err, profile) {
-//     if (err) {
-//       res.status(500).end();
-//     }
-//     console.log(profile);
-//     res.json(profile);
-//   });
-// });
-
-// router.get("/?instrument=drums", (req, res) => {
-//   Profile.find({
-//     instrument: { $regex: new RegExp(req.query.q, 'i')}
-//   })
-//     .then((foundProfile) => {
-//       res.json(foundProfile);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(404).end();
-//     });
-// });
-
 router.post("/", (req, res) => {
   console.log(req.body);
   Profile.create(req.body).then((newProfile) => {

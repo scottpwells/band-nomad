@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Form = ({ buttonText, handleFormSubmit }) => {
@@ -13,24 +12,9 @@ const Form = ({ buttonText, handleFormSubmit }) => {
   const [instrument, setInstrument] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [bio, setBio] = useState("");
-  const [fileInputState, setFileInputState] = useState("");
-  const [selectedFile, setSelectedFile] = useState();
-  const [previewSource, setPreviewSource] = useState("");
+
   const { id } = useParams();
 
-  const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    previewFile(file);
-    setSelectedFile(file);
-    setFileInputState(e.target.value);
-  };
-  const previewFile = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setPreviewSource(reader.result);
-    };
-  };
 
   useEffect(() => {
     console.log(id);
@@ -194,25 +178,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
             <label htmlFor="bio">Bio</label>
           </div>
         </div>
-        <div className="row">
-          <div className="input-field col s12">
-            <input
-              id="imageURL"
-              type="file"
-              name="imageURL"
-              value={fileInputState}
-              onChange={handleFileInputChange}
-            />
-            <label htmlFor="Image URL">Image URL</label>
-            {previewSource && (
-              <img
-                src={previewSource}
-                alt="chosen"
-                style={{ height: "100px" }}
-              />
-            )}
-          </div>
-        </div>
+        
         <div className="row">
           <div className="col s12">
             <select
