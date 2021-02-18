@@ -41,7 +41,6 @@ function ConditionalLogin() {
         <Route exact path="/update/:id" component={Update} />
         {/* <Route exact path="/upload" component={Upload} /> */}
       </Switch>
-      
     );
   }
 }
