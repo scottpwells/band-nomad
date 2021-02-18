@@ -21,12 +21,15 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+app.use(cookiesMiddleware());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
   console.log("req.session", req.session);
   return next();
 });
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/band-nomad", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
