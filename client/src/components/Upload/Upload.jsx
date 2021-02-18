@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 // import { Image } from "cloudinary-react";
-import axios from "axios";
-import { json } from "express";
+// import axios from "axios";
+// import { json } from "express";
 
 const Upload = () => {
   const [fileInputState, setFileInputState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const [selectedFile, setSelectedFile] = useState();
-  const [imageURL, setImageURL] = useState();
+  // const [imageURL, setImageURL] = useState();
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -38,17 +38,15 @@ const Upload = () => {
   };
 
   const uploadImage = async (base64EncodedImage) => {
-  
-     let response = await fetch("/api/upload", {
-        method: "POST",
-        body: JSON.stringify({ data: base64EncodedImage }),
-        headers: { "Content-Type": "application/json" },
-      })
-      console.log(response.json());;
+    let response = await fetch("/api/upload", {
+      method: "POST",
+      body: JSON.stringify({ data: base64EncodedImage }),
+      headers: { "Content-Type": "application/json" },
+    });
+    console.log(response.json());
 
-      setFileInputState("");
-      setPreviewSource("");
-   
+    // setFileInputState("");
+    // setPreviewSource("");
   };
   // const loadImages = () => {
   //   axios
