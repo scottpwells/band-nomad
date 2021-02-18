@@ -18,22 +18,33 @@ function ConditionalNavBar() {
   }
 }
 
+function ConditionalLogin() {
+  const [cookies, setCookie] = useCookies(["username"]);
+  if (cookies.username === "") {
+    return <Login></Login>;
+  } else {
+    return (
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/create" component={Create} />
+        <Route exact path="/contact/" component={ContactPage} />
+        <Route exact path="/contact/:id" component={ContactPage} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/update" component={Update} />
+        <Route path="/inProfile/:id" component={InProfile} />
+        <Route exact path="/update/:id" component={Update} />
+      </Switch>
+    );
+  }
+}
+
 function App() {
   return (
     <div>
       <Router>
         <ConditionalNavBar></ConditionalNavBar>
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/create" component={Create} />
-          <Route exact path="/contact/" component={ContactPage} />
-          <Route exact path="/contact/:id" component={ContactPage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/update" component={Update} />
-          <Route path="/inProfile/:id" component={InProfile} />
-          <Route exact path="/update/:id" component={Update} />
-        </Switch>
+        <ConditionalLogin></ConditionalLogin>
         <Footer />
       </Router>
     </div>
