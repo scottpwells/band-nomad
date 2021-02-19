@@ -329,7 +329,10 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         </div>
         <div className="row">
           <div className="col s12">
-            <button className="btn waves-effect waves-light">
+            <button
+              className="btn waves-effect waves-light"
+              style={{ backgroundColor: "#004AAD", color: "ffff" }}
+            >
               {buttonText}
             </button>
           </div>
