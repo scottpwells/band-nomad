@@ -48,7 +48,7 @@ const InProfile = () => {
               />
             </div>
             <div className="col s9">
-              <h3>{musician.name}</h3>
+              <h3 className="musicianName">{musician.name}</h3>
               <p>{musician.bio}</p>
             </div>
           </div>
