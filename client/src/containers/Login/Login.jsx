@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import logoBand100 from "../../assets/images/nomadLogo100.jpg";
-import gettingStarted from "../../assets/images/startaband.png";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -30,34 +29,37 @@ function LogIn() {
   };
 
   return (
-    <div className="login col s6">
-      <img
-        style={{ Height: "auto" }}
-        id="navImage"
-        src={logoBand100}
-        alt="band nomad logo"
-      />
-      <h3 className="loginTitle">Login to Band Nomad</h3>
-      <form onSubmit={handleFormSubmit}>
-        <label for="Email">Email</label>
-        <input
-          name="Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        ></input>
-        <label for="Password">Password</label>
-        <input
-          name="Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        ></input>
-        <button className="submitButton btn waves-effect waves-light">
-          Submit
-        </button>
-      </form>
-    </div>
+    <>
+      <header></header>
+      <div className="login col s6">
+        <img
+          style={{ Height: "auto" }}
+          id="navImage"
+          src={logoBand100}
+          alt="band nomad logo"
+        />
+        <h3 className="loginTitle">Login to Band Nomad</h3>
+        <form onSubmit={handleFormSubmit}>
+          <label for="Email">Email</label>
+          <input
+            name="Email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          ></input>
+          <label for="Password">Password</label>
+          <input
+            name="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          ></input>
+          <button className="submitButton btn waves-effect waves-light">
+            Submit
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 function SignUp() {
@@ -76,7 +78,7 @@ function SignUp() {
 
 const Login = () => {
   return (
-    <div className="row" style={{ marginTop: "30px" }}>
+    <div className="row">
       <LogIn></LogIn>
       <SignUp></SignUp>
     </div>

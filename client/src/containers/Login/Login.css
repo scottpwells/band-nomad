@@ -1,3 +1,12 @@
+header {
+  background-image: url("../../assets/images/startaband.png");
+  background-size: cover;
+  background-position: -170px;
+  height: 6rem;
+  width: 100%;
+  margin: 0px;
+}
+
 .login {
   background-color: white;
   text-align: center;
@@ -47,4 +56,7 @@
   background-color: hotpink;
   color: white;
   border: solid 2px navy;
+}
+
+@media (min-width: 100px) {
 }
