@@ -1,15 +1,12 @@
-header {
-  background-image: url("../../assets/images/startaband.png");
-  background-size: cover;
-  background-position: -170px;
-  height: 6rem;
-  width: 100%;
-  margin: 0px;
+.login-container {
+  display: flex;
+  margin-top: 20%;
 }
 
 .login {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.685);
   text-align: center;
+  flex: 1;
 }
 
 .loginTitle {
@@ -19,7 +16,7 @@ header {
 }
 
 .submitButton {
-  background-color: #008fc1;
+  background-color: #008ec1;
   color: white;
   border: solid 2px navy;
   /* padding-top: 5px;
@@ -32,10 +29,11 @@ header {
 }
 
 .signup {
-  border: solid 2px navy;
+  /* border: solid 2px navy; */
   text-align: center;
   color: white;
-  background-color: #008fc1;
+  background-color: #008ec1ce;
+  flex: 1;
 }
 
 .hello {
@@ -58,5 +56,8 @@ header {
   border: solid 2px navy;
 }
 
-@media (min-width: 100px) {
+@media (min-width: 780px) {
+  header {
+    background-position-y: 150px;
+  }
 }
