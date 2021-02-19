@@ -1,8 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import axios from "axios";
+
+function ConditionalH1({ id }) {
+  if (id) {
+    return (
+      <>
+        <h3>User Contact Form!</h3>
+        <h6>Fill out the form and send a message!</h6>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <h3>Contact Band Nomad!</h3>
+        <h6>Fill out the form and send us message!</h6>
+      </>
+    );
+  }
+}
 
 const ContactPage = () => {
   const [name, setName] = useState("");
@@ -14,6 +33,7 @@ const ContactPage = () => {
   const [musician, setMusician] = useState([]);
 
   const { id } = useParams();
+  const history = useHistory();
 
   console.log(id, "we found the id");
 
@@ -37,33 +57,44 @@ const ContactPage = () => {
     <div className="container">
       <div className="row">
         <div className="col s12 center-align">
-          <h1>Please enter your information and write a message!</h1>
+          <ConditionalH1 id={id}></ConditionalH1>
           <div>
             <form
               className="col s12"
+              style={{
+                backgroundColor: "rgba(206, 206, 206, 0.53)",
+                marginTop: "15px",
+              }}
               onSubmit={(e) => {
                 e.preventDefault();
-                axios
-                  .post("/api/contact/user/" + id, {
-                    name,
-                    bandName,
-                    genre,
-                    email,
-                    phone,
-                    message,
-                  })
-                  .then((response) => {
-                    console.log(response.data._id);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                  });
+                if (id) {
+                  axios
+                    .post("/api/contact/user/" + id, {
+                      name,
+                      bandName,
+                      genre,
+                      email,
+                      phone,
+                      message,
+                    })
+                    .then((response) => {
+                      console.log(response.data._id);
+                      history.push("/ContactRedirect");
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                } else {
+                  history.push("/ContactRedirect");
+                }
               }}
             >
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Name"
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="name"
                     type="text"
                     name="name"
@@ -72,13 +103,22 @@ const ContactPage = () => {
                       setName(e.target.value);
                     }}
                   />
-                  <label htmlFor="name">Name</label>
+                  <label
+                    htmlFor="name"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Name
+                  </label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Band Name"
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="bandName"
                     type="text"
                     name="bandName"
@@ -87,13 +127,22 @@ const ContactPage = () => {
                       setBandName(e.target.value);
                     }}
                   />
-                  <label htmlFor="Band Name">Band Name</label>
+                  <label
+                    htmlFor="Band Name"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Band Name
+                  </label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Genre"
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="genre"
                     type="text"
                     name="genre"
@@ -102,12 +151,22 @@ const ContactPage = () => {
                       setGenre(e.target.value);
                     }}
                   />
-                  <label htmlFor="Genre">Genre</label>
+                  <label
+                    htmlFor="Genre"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Genre
+                  </label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">
                   <input
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="email"
                     type="email"
                     name="email"
@@ -116,13 +175,22 @@ const ContactPage = () => {
                       setEmail(e.target.value);
                     }}
                   />
-                  <label htmlFor="email">Email</label>
+                  <label
+                    htmlFor="email"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Email
+                  </label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Phone"
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="phone"
                     type="number"
                     name="phone"
@@ -131,13 +199,22 @@ const ContactPage = () => {
                       setPhone(e.target.value);
                     }}
                   />
-                  <label htmlFor="Phone">Phone</label>
+                  <label
+                    htmlFor="Phone"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Phone
+                  </label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Message"
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="message"
                     type="text"
                     name="message"
@@ -146,16 +223,29 @@ const ContactPage = () => {
                       setMessage(e.target.value);
                     }}
                   />
-                  <label htmlFor="Message">Message</label>
+                  <label
+                    htmlFor="Message"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Message
+                  </label>
                 </div>
               </div>
               <div className="row">
                 <div className="col s12">
-                  <Link to={`/inProfile/${musician._id}`}>
-                <button className="btn waves-effect waves-light">
-                  Submit
-                </button>
-              </Link>
+                  {/* <Link to={`/inProfile/${_id}`}>
+              <button className="btn waves-effect waves-light">
+                {buttonText}
+              </button>
+            </Link> */}
+                  <button
+                    className="btn waves-effect waves-light"
+                    style={{ backgroundColor: "#004AAD", color: "ffff" }}
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
             </form>

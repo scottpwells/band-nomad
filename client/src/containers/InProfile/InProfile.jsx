@@ -12,7 +12,7 @@ const InProfile = () => {
   useEffect(() => {
     getInProfile();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
+  }, []);
   const getInProfile = () => {
     axios
       .get(`/api/musician/${id}`)
@@ -48,7 +48,7 @@ const InProfile = () => {
               />
             </div>
             <div className="col s9">
-              <h4>{musician.name}</h4>
+              <h3 className="musicianName">{musician.name}</h3>
               <p>{musician.bio}</p>
             </div>
           </div>
@@ -58,7 +58,10 @@ const InProfile = () => {
                 {musician.contact}
                 <span>
                   <Link to={`/contact/${musician._id}`}>
-                    <button className="btn waves-effect waves-light"style={{ backgroundColor: "#004AAD", color: "ffff" }}>
+                    <button
+                      className="btn waves-effect waves-light"
+                      style={{ backgroundColor: "#004AAD", color: "ffff" }}
+                    >
                       contact me
                     </button>
                   </Link>
@@ -70,7 +73,10 @@ const InProfile = () => {
               <h4>{musician.genre}</h4>
               <h4>{musician.instrument}</h4>
               <Link to={`/update/${musician._id}`}>
-                <button className="btn waves-effect waves-light"style={{ backgroundColor: "#004AAD", color: "ffff" }}>
+                <button
+                  className="btn waves-effect waves-light"
+                  style={{ backgroundColor: "#004AAD", color: "ffff" }}
+                >
                   update profile
                 </button>
               </Link>
@@ -80,6 +86,7 @@ const InProfile = () => {
                   onClick={() => {
                     deleteProfile(musician._id);
                   }}
+                  style={{ backgroundColor: "#004AAD", color: "ffff" }}
                 >
                   delete profile
                 </button>

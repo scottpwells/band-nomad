@@ -1,6 +1,12 @@
+.login-container {
+  display: flex;
+  margin-top: 15%;
+}
+
 .login {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.685);
   text-align: center;
+  flex: 1;
 }
 
 .loginTitle {
@@ -10,7 +16,7 @@
 }
 
 .submitButton {
-  background-color: #008fc1;
+  background-color: #008ec1;
   color: white;
   border: solid 2px navy;
   /* padding-top: 5px;
@@ -23,10 +29,11 @@
 }
 
 .signup {
-  border: solid 2px navy;
+  /* border: solid 2px navy; */
   text-align: center;
   color: white;
-  background-color: #008fc1;
+  background-color: #008ec1ce;
+  flex: 1;
 }
 
 .hello {
@@ -47,4 +54,10 @@
   background-color: hotpink;
   color: white;
   border: solid 2px navy;
+}
+
+@media (min-width: 780px) {
+  header {
+    background-position-y: 150px;
+  }
 }
