@@ -76,7 +76,7 @@ const ContactPage = () => {
                 <div className="input-field col s12">
                   <input
                     style={{
-                      color: "black",
+                      borderBottom: "2px dashed hotpink",
                     }}
                     id="name"
                     type="text"
@@ -99,6 +99,9 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="bandName"
                     type="text"
                     name="bandName"
@@ -120,6 +123,9 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="genre"
                     type="text"
                     name="genre"
@@ -141,6 +147,9 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="email"
                     type="email"
                     name="email"
@@ -162,6 +171,9 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="phone"
                     type="number"
                     name="phone"
@@ -183,6 +195,9 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
+                    style={{
+                      borderBottom: "2px dashed hotpink",
+                    }}
                     id="message"
                     type="text"
                     name="message"
