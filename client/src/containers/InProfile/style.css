@@ -18,8 +18,8 @@
 button {
   margin: 5px;
 }
-h3 {
+.musicianName {
   color: hotpink;
-  text-shadow: -1px -1px 0 #008fc1, 1px -1px 0 #008fc1, -1px 1px 0 #008fc1,
-    1px 1px 0 #008fc1;
+  text-shadow: -1px -1px 0 #004aad, 1px -1px 0 #004aad, -1px 1px 0 #004aad,
+    1px 1px 0 #004aad;
 }
