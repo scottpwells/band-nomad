@@ -16,7 +16,6 @@ const Form = ({ buttonText, handleFormSubmit }) => {
 
   const { id } = useParams();
 
-
   useEffect(() => {
     console.log(id);
     if (id) {
@@ -57,6 +56,10 @@ const Form = ({ buttonText, handleFormSubmit }) => {
     <div>
       <form
         className="col s12"
+        style={{
+          backgroundColor: "rgba(206, 206, 206, 0.53)",
+          marginTop: "15px",
+        }}
         onSubmit={(e) => {
           handleFormSubmit(
             e,
@@ -79,6 +82,9 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
+              style={{
+                borderBottom: "2px dashed hotpink",
+              }}
               id="name"
               type="text"
               name="name"
@@ -87,12 +93,22 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setName(e.target.value);
               }}
             />
-            <label htmlFor="name">Name</label>
+            <label
+              htmlFor="name"
+              style={{
+                color: "black",
+              }}
+            >
+              Name
+            </label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
+              style={{
+                borderBottom: "2px dashed hotpink",
+              }}
               id="password"
               type="text"
               name="password"
@@ -101,12 +117,22 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setPassword(e.target.value);
               }}
             />
-            <label htmlFor="password">Password</label>
+            <label
+              htmlFor="password"
+              style={{
+                color: "black",
+              }}
+            >
+              Password
+            </label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
+              style={{
+                borderBottom: "2px dashed hotpink",
+              }}
               id="contact"
               type="text"
               name="contact"
@@ -115,12 +141,22 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setContact(e.target.value);
               }}
             />
-            <label htmlFor="Contact Note">Contact Note</label>
+            <label
+              htmlFor="Contact Note"
+              style={{
+                color: "black",
+              }}
+            >
+              Contact Note
+            </label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
+              style={{
+                borderBottom: "2px dashed hotpink",
+              }}
               id="phone"
               type="number"
               name="phone"
@@ -129,12 +165,22 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setPhone(e.target.value);
               }}
             />
-            <label htmlFor="Phone Number">Phone Number</label>
+            <label
+              htmlFor="Phone Number"
+              style={{
+                color: "black",
+              }}
+            >
+              Phone Number
+            </label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
+              style={{
+                borderBottom: "2px dashed hotpink",
+              }}
               id="email"
               type="email"
               name="email"
@@ -143,7 +189,14 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setEmail(e.target.value);
               }}
             />
-            <label htmlFor="email">Email</label>
+            <label
+              htmlFor="email"
+              style={{
+                color: "black",
+              }}
+            >
+              Email
+            </label>
           </div>
         </div>
         {/* <div className="row">
@@ -185,6 +238,9 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="input-field col s12">
             <input
+              style={{
+                borderBottom: "2px dashed hotpink",
+              }}
               id="imageURL"
               type="text"
               name="imageURL"
@@ -193,12 +249,22 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setImageURL(e.target.value);
               }}
             />
-            <label htmlFor="imageURL">ImageURL</label>
+            <label
+              htmlFor="imageURL"
+              style={{
+                color: "black",
+              }}
+            >
+              ImageURL
+            </label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
+              style={{
+                borderBottom: "2px dashed hotpink",
+              }}
               id="bio"
               type="text"
               name="bio"
@@ -207,7 +273,14 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setBio(e.target.value);
               }}
             />
-            <label htmlFor="bio">Bio</label>
+            <label
+              htmlFor="bio"
+              style={{
+                color: "black",
+              }}
+            >
+              Bio
+            </label>
           </div>
         </div>
 
