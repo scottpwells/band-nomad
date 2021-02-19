@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import logoBand100 from "../../assets/images/nomadLogo100.jpg";
+import gettingStarted from "../../assets/images/startaband.png";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";

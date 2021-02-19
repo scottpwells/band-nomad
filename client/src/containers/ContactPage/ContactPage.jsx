@@ -4,6 +4,24 @@ import axios from "axios";
 // import { Link } from "react-router-dom";
 // import axios from "axios";
 
+function ConditionalH1({ id }) {
+  if (id) {
+    return (
+      <>
+        <h3>User Contact Form!</h3>
+        <h6>Fill out the form and send a message!</h6>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <h3>Contact Band Nomad!</h3>
+        <h6>Fill out the form and send us message!</h6>
+      </>
+    );
+  }
+}
+
 const ContactPage = () => {
   const [name, setName] = useState("");
   const [bandName, setBandName] = useState("");
@@ -20,7 +38,7 @@ const ContactPage = () => {
     <div className="container">
       <div className="row">
         <div className="col s12 center-align">
-          <h1>Please enter your information and write a message!</h1>
+          <ConditionalH1 id={id}></ConditionalH1>
           <div>
             <form
               className="col s12"
