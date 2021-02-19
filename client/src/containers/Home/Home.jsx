@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Home/Home.css";
@@ -8,7 +8,6 @@ const Home = () => {
   const [genre, setGenre] = useState("");
   const [city, setCity] = useState("");
   const [musicians, setMusicians] = useState([]);
-
 
   const handleFormSubmit = (event) => {
     // When the form is submitted, prevent its default behavior,
@@ -115,10 +114,10 @@ const Home = () => {
                   <option value="" disabled selected>
                     Musician Instrument
                   </option>
-                  <option value="bass">Bass Player</option>
-                  <option value="guitar">Guitar Player</option>
-                  <option value="drums">Drummer</option>
-                  <option value="singer">Lead Singer</option>
+                  <option value="Bass Player">Bass Player</option>
+                  <option value="Guitar Player">Guitar Player</option>
+                  <option value="Drummer">Drummer</option>
+                  <option value="Lead Singer">Lead Singer</option>
                 </select>
               </div>
             </div>
@@ -137,11 +136,11 @@ const Home = () => {
                   <option value="" disabled selected>
                     Musician Genre
                   </option>
-                  <option value="blues">Rhythm and Blues</option>
-                  <option value="country">Country Music</option>
-                  <option value="jazz">Jazz Music</option>
-                  <option value="pop">Pop Music</option>
-                  <option value="rock">Rock Music</option>
+                  <option value="Rhythm and Blues">Rhythm and Blues</option>
+                  <option value="Country Music">Country Music</option>
+                  <option value="Jazz Music">Jazz Music</option>
+                  <option value="Pop Music">Pop Music</option>
+                  <option value="Rock Music">Rock Music</option>
                 </select>
               </div>
             </div>
