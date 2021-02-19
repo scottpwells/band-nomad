@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Form = ({ buttonText, handleFormSubmit }) => {
   const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
   const [contact, setContact] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
@@ -25,6 +26,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
           console.log(response.data);
           const {
             name,
+            password,
             contact,
             phone,
             city,
@@ -35,6 +37,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
             bio,
           } = response.data;
           setName(name);
+          setPassword(password);
           setContact(contact);
           setPhone(phone);
           setCity(city);
@@ -59,6 +62,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
             e,
             {
               name,
+              password,
               contact,
               phone,
               city,
@@ -84,6 +88,20 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               }}
             />
             <label htmlFor="name">Name</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              id="password"
+              type="text"
+              name="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <label htmlFor="password">Password</label>
           </div>
         </div>
         <div className="row">

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
+const bcrypt = require('bcryptjs')
 
 const musicianSchema = new Schema({
   name: {
@@ -21,6 +21,10 @@ const musicianSchema = new Schema({
   email: {
     type: String,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
+  },
+  password: {
+    type: String,
+    unique: false
   },
   genre: {
     type: String,
@@ -49,6 +53,25 @@ const musicianSchema = new Schema({
   }
 });
 
-const musician = mongoose.model("Musician", musicianSchema);
+musicianSchema.methods = {
+  checkPassword: function(input){
+    return bcrypt.compareSync(input, this.password)
+  },
+  hashPassword: plainTextPassword => {
+    return bcrypt.hashSync(plainTextPassword, 10)
+  }
+}
 
+musicianSchema.pre('save', function (next) {
+  if(!this.password) {
+    console.log('NO PASSWORD PROVIDED')
+    next()
+  } else {
+    console.log('hashPassword in pre save');
+    this.password = this.hashPassword(this.password)
+    next()
+  }
+})
+
+const musician = mongoose.model("Musician", musicianSchema);
 module.exports = musician;

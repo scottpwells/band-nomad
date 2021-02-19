@@ -1,18 +1,20 @@
 import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Form from "../../Components/Form/Form.jsx";
+import Form from "../../components/Form/Form";
+import { useCookies } from "react-cookie";
 
 const CreateProfile = () => {
   const history = useHistory();
+  const [cookies, setCookie] = useCookies(["username"]);
 
   const handleFormSubmit = (e, musicianData) => {
     e.preventDefault();
     axios
       .post("/api/musician", musicianData)
       .then((response) => {
-        console.log(response.data._id);
-        history.push(`/inProfile/${response.data._id}`);
+        setCookie("username", response.data.username);
+        history.push("/");
       })
       .catch((err) => {
         console.log(err);
