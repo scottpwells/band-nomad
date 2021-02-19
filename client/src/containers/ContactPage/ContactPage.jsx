@@ -44,6 +44,10 @@ const ContactPage = () => {
           <div>
             <form
               className="col s12"
+              style={{
+                backgroundColor: "rgba(206, 206, 206, 0.53)",
+                marginTop: "15px",
+              }}
               onSubmit={(e) => {
                 e.preventDefault();
                 if (id) {
@@ -71,6 +75,9 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
+                    style={{
+                      color: "black",
+                    }}
                     id="name"
                     type="text"
                     name="name"
@@ -79,7 +86,14 @@ const ContactPage = () => {
                       setName(e.target.value);
                     }}
                   />
-                  <label htmlFor="name">Name</label>
+                  <label
+                    htmlFor="name"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Name
+                  </label>
                 </div>
               </div>
               <div className="row">
@@ -93,7 +107,14 @@ const ContactPage = () => {
                       setBandName(e.target.value);
                     }}
                   />
-                  <label htmlFor="Band Name">Band Name</label>
+                  <label
+                    htmlFor="Band Name"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Band Name
+                  </label>
                 </div>
               </div>
               <div className="row">
@@ -107,7 +128,14 @@ const ContactPage = () => {
                       setGenre(e.target.value);
                     }}
                   />
-                  <label htmlFor="Genre">Genre</label>
+                  <label
+                    htmlFor="Genre"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Genre
+                  </label>
                 </div>
               </div>
               <div className="row">
@@ -121,7 +149,14 @@ const ContactPage = () => {
                       setEmail(e.target.value);
                     }}
                   />
-                  <label htmlFor="email">Email</label>
+                  <label
+                    htmlFor="email"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Email
+                  </label>
                 </div>
               </div>
               <div className="row">
@@ -135,7 +170,14 @@ const ContactPage = () => {
                       setPhone(e.target.value);
                     }}
                   />
-                  <label htmlFor="Phone">Phone</label>
+                  <label
+                    htmlFor="Phone"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Phone
+                  </label>
                 </div>
               </div>
               <div className="row">
@@ -149,7 +191,14 @@ const ContactPage = () => {
                       setMessage(e.target.value);
                     }}
                   />
-                  <label htmlFor="Message">Message</label>
+                  <label
+                    htmlFor="Message"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    Message
+                  </label>
                 </div>
               </div>
               <div className="row">
@@ -159,7 +208,10 @@ const ContactPage = () => {
                 {buttonText}
               </button>
             </Link> */}
-                  <button className="btn waves-effect waves-light">
+                  <button
+                    className="btn waves-effect waves-light"
+                    style={{ backgroundColor: "#004AAD", color: "ffff" }}
+                  >
                     Submit
                   </button>
                 </div>
