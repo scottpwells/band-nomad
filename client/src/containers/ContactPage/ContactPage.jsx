@@ -30,11 +30,28 @@ const ContactPage = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [musician, setMusician] = useState([]);
 
   const { id } = useParams();
   const history = useHistory();
 
   console.log(id, "we found the id");
+
+  useEffect(() => {
+    getInProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+  const getInProfile = () => {
+    axios
+      .get(`/api/musician/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setMusician(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="container">

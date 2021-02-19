@@ -199,42 +199,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
             </label>
           </div>
         </div>
-        {/* <div className="row">
-          <div className="input-field col s12">
-            <input
-              id="city"
-              type="text"
-              name="city"
-              value={city}
-              onChange={(e) => {
-                setCity(e.target.value);
-              }}
-            />
-            <label htmlFor="City">City</label>
-          </div>
-        </div> */}
-        <div className="row">
-          <div className="col s12">
-            <select
-              id="city"
-              value={city}
-              onChange={(e) => {
-                setCity(e.target.value);
-              }}
-              className="browser-default"
-            >
-              <option value="" disabled selected>
-                Choose your city
-              </option>
-              <option value="Atlanta">Atlanta</option>
-              <option value="Midtown">Midtown</option>
-              <option value="Buckhead">Buckhead</option>
-              <option value="Decatur">Decatur</option>
-              <option value="Alpharetta">Alpharetta</option>
-              <option value="Marrietta">Marrietta</option>
-            </select>
-          </div>
-        </div>
+
         <div className="row">
           <div className="input-field col s12">
             <input
@@ -283,7 +248,28 @@ const Form = ({ buttonText, handleFormSubmit }) => {
             </label>
           </div>
         </div>
-
+        <div className="row">
+          <div className="col s12">
+            <select
+              id="city"
+              value={city}
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}
+              className="browser-default"
+            >
+              <option value="" disabled selected>
+                Choose your city
+              </option>
+              <option value="Atlanta">Atlanta</option>
+              <option value="Midtown">Midtown</option>
+              <option value="Buckhead">Buckhead</option>
+              <option value="Decatur">Decatur</option>
+              <option value="Alpharetta">Alpharetta</option>
+              <option value="Marrietta">Marrietta</option>
+            </select>
+          </div>
+        </div>
         <div className="row">
           <div className="col s12">
             <select
@@ -297,10 +283,10 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               <option value="" disabled selected>
                 Choose Instrument
               </option>
-              <option value="bass">Bass Player</option>
-              <option value="guitar">Guitar Player</option>
-              <option value="drums">Drummer</option>
-              <option value="singer">Lead Singer</option>
+              <option value="Bass Player">Bass Player</option>
+              <option value="Guitar Player">Guitar Player</option>
+              <option value="Drummer">Drummer</option>
+              <option value="Lead Singer">Lead Singer</option>
             </select>
           </div>
         </div>
@@ -319,11 +305,11 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               <option value="" disabled selected>
                 Choose a Genre
               </option>
-              <option value="blues">Rhythm and Blues</option>
-              <option value="country">Country Music</option>
-              <option value="jazz">Jazz Music</option>
-              <option value="pop">Pop Music</option>
-              <option value="rock">Rock Music</option>
+              <option value="Rhythm and Blues">Rhythm and Blues</option>
+              <option value="Country Music">Country Music</option>
+              <option value="Jazz Music">Jazz Music</option>
+              <option value="Pop Music">Pop Music</option>
+              <option value="Rock Music">Rock Music</option>
             </select>
           </div>
         </div>

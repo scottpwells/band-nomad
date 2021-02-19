@@ -54,7 +54,7 @@ const InProfile = () => {
           </div>
           <div className="row">
             <div className="col">
-              <p>
+              <h4>
                 {musician.contact}
                 <span>
                   <Link to={`/contact/${musician._id}`}>
@@ -66,10 +66,12 @@ const InProfile = () => {
                     </button>
                   </Link>
                 </span>
-              </p>
-              <p>{musician.phone}</p>
-              <p>{musician.genre}</p>
-              <p>{musician.instrument}</p>
+              </h4>
+              <h4>{musician.phone}</h4>
+              <h4>{musician.email}</h4>
+              <h4>{musician.city}</h4>
+              <h4>{musician.genre}</h4>
+              <h4>{musician.instrument}</h4>
               <Link to={`/update/${musician._id}`}>
                 <button
                   className="btn waves-effect waves-light"
@@ -80,7 +82,7 @@ const InProfile = () => {
               </Link>
               <Link to={"/"}>
                 <button
-                  className="btn waves-effect waves-light"
+                  className="btn waves-effect waves-light" style={{ backgroundColor: "#004AAD", color: "ffff" }}
                   onClick={() => {
                     deleteProfile(musician._id);
                   }}

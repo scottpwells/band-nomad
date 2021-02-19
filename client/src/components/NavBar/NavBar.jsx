@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import logoBand100 from "../../assets/images/nomadLogo100.jpg";
@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
   const [cookies, setCookie] = useCookies(["username"]);
+  
   useEffect(() => {
     //initialize materialize
     M.AutoInit();
@@ -16,6 +17,7 @@ const NavBar = () => {
   function LoggedIn() {
     const [cookies, setCookie] = useCookies(["username"]);
     const history = useHistory();
+
     function handleClick(e) {
       e.preventDefault();
       axios
@@ -54,6 +56,7 @@ const NavBar = () => {
       );
     }
   }
+
   return (
     <nav>
     <div className="nav-wrapper">
@@ -64,9 +67,9 @@ const NavBar = () => {
       <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
  
     <ul id="link-align" className="right hide-on-med-and-down">
-    <li><NavLink 
+    {/* <li><NavLink 
     to="/" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
-    >Home</NavLink></li>
+    >Home</NavLink></li> */}
             
             <li>
               <NavLink
@@ -77,14 +80,14 @@ const NavBar = () => {
               </NavLink>
             </li>
 
-            <li>
+            {/* <li>
               <NavLink
                 to="/create"
                 activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
               >
                 Sign Up
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 to="/contact"
@@ -98,7 +101,7 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
-                to="/update"
+                to="/"
                 activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
               >
                 My Account
@@ -135,7 +138,7 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
-            to="/Update"
+            to="/"
             activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
           >
             My Account
