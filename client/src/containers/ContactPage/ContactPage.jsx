@@ -71,7 +71,6 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Name"
                     id="name"
                     type="text"
                     name="name"
@@ -86,7 +85,6 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Band Name"
                     id="bandName"
                     type="text"
                     name="bandName"
@@ -101,7 +99,6 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Genre"
                     id="genre"
                     type="text"
                     name="genre"
@@ -130,7 +127,6 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Phone"
                     id="phone"
                     type="number"
                     name="phone"
@@ -145,7 +141,6 @@ const ContactPage = () => {
               <div className="row">
                 <div className="input-field col s12">
                   <input
-                    placeholder="Message"
                     id="message"
                     type="text"
                     name="message"
