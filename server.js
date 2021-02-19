@@ -1,4 +1,4 @@
-const { cloudinary } = require("./utils/cloudinary");
+// const { cloudinary } = require("./utils/cloudinary");
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -103,16 +103,16 @@ app.get("/api/config", (req, res) => {
 //   res.send(secure_url);
 // });
 
-app.get("/api/images", async (req, res) => {
-  const { resources } = await cloudinary.search
-    .expression("folder:band_nomad")
-    .sort_by("public_id", "desc")
-    .max_results(30)
-    .execute();
+// app.get("/api/images", async (req, res) => {
+//   const { resources } = await cloudinary.search
+//     .expression("folder:band_nomad")
+//     .sort_by("public_id", "desc")
+//     .max_results(30)
+//     .execute();
 
-  const publicIds = resources.map((file) => file.public_id);
-  res.send(publicIds);
-});
+//   const publicIds = resources.map((file) => file.public_id);
+//   res.send(publicIds);
+// });
 
 app.get("/api/data/session", (req, res) => {
   console.log("===== user!! =====");

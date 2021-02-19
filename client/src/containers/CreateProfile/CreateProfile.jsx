@@ -14,7 +14,7 @@ const CreateProfile = () => {
       .post("/api/musician", musicianData)
       .then((response) => {
         setCookie("username", response.data.username);
-        history.push("/");
+        history.push(`/inProfile/${response.data._id}`);
       })
       .catch((err) => {
         console.log(err);

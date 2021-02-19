@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import axios from "axios";
 
 const ContactPage = () => {
@@ -11,10 +11,27 @@ const ContactPage = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [musician, setMusician] = useState([]);
 
   const { id } = useParams();
 
   console.log(id, "we found the id");
+
+  useEffect(() => {
+    getInProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+  const getInProfile = () => {
+    axios
+      .get(`/api/musician/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setMusician(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="container">
@@ -134,14 +151,11 @@ const ContactPage = () => {
               </div>
               <div className="row">
                 <div className="col s12">
-                  {/* <Link to={`/inProfile/${_id}`}>
-              <button className="btn waves-effect waves-light">
-                {buttonText}
-              </button>
-            </Link> */}
-                  <button className="btn waves-effect waves-light">
-                    Submit
-                  </button>
+                  <Link to={`/inProfile/${musician._id}`}>
+                <button className="btn waves-effect waves-light">
+                  Submit
+                </button>
+              </Link>
                 </div>
               </div>
             </form>

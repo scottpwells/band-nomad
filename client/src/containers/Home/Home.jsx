@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Home/Home.css";
@@ -48,7 +48,6 @@ const Home = () => {
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
-        
           <tr className="bg-colorizinger" id={musician._id}>
             <td style={{ maxWidth: "50px" }}>
               <img
@@ -94,7 +93,9 @@ const Home = () => {
                   >
                     Getting Started
                   </h1>
-                  <li id="startList" style={{ listStyleType: "disc" }}>Start a band</li>
+                  <li id="startList" style={{ listStyleType: "disc" }}>
+                    Start a band
+                  </li>
                   <li id="startList" style={{ listStyleType: "disc" }}>
                     Add a new band member
                   </li>
