@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 // import { Link } from "react-router-dom";
 // import axios from "axios";
 
@@ -31,6 +32,7 @@ const ContactPage = () => {
   const [message, setMessage] = useState("");
 
   const { id } = useParams();
+  const history = useHistory();
 
   console.log(id, "we found the id");
 
@@ -44,21 +46,26 @@ const ContactPage = () => {
               className="col s12"
               onSubmit={(e) => {
                 e.preventDefault();
-                axios
-                  .post("/api/contact/user/" + id, {
-                    name,
-                    bandName,
-                    genre,
-                    email,
-                    phone,
-                    message,
-                  })
-                  .then((response) => {
-                    console.log(response.data._id);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                  });
+                if (id) {
+                  axios
+                    .post("/api/contact/user/" + id, {
+                      name,
+                      bandName,
+                      genre,
+                      email,
+                      phone,
+                      message,
+                    })
+                    .then((response) => {
+                      console.log(response.data._id);
+                      history.push("/ContactRedirect");
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                } else {
+                  history.push("/ContactRedirect");
+                }
               }}
             >
               <div className="row">

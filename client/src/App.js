@@ -9,6 +9,7 @@ import InProfile from "./containers/InProfile/InProfile";
 import Update from "./containers/UpdateProfile/UpdateProfile";
 import Footer from "./components/Footer/Footer";
 import { useCookies } from "react-cookie";
+import ContactRedirect from "./containers/ContactPage/ContactRedirect";
 
 function ConditionalNavBar() {
   const [cookies, setCookie] = useCookies(["username"]);
@@ -35,6 +36,7 @@ function ConditionalLogin() {
         <Route exact path="/create" component={Create} />
         <Route exact path="/contact/" component={ContactPage} />
         <Route exact path="/contact/:id" component={ContactPage} />
+        <Route exact path="/contactRedirect/" component={ContactRedirect} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/update" component={Update} />
         <Route path="/inProfile/:id" component={InProfile} />

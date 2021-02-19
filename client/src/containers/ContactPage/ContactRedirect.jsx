@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const ContactRedirect = () => {
+  const history = useHistory();
+  useEffect(() => {
+    history.push("/");
+  }, []);
+
   return (
     <>
       <h3>Message Sent!</h3>
