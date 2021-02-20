@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+
+import React, {useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Home/Home.css";
-
 const Home = () => {
   const [instrument, setInstrument] = useState("");
   const [genre, setGenre] = useState("");
   const [city, setCity] = useState("");
   const [musicians, setMusicians] = useState([]);
-
   const handleFormSubmit = (event) => {
     // When the form is submitted, prevent its default behavior,
     event.preventDefault();
     searchProfiles();
   };
-
   const searchProfiles = () => {
     let baseURL = "/api/musician/?";
     if (instrument) {
@@ -26,12 +24,10 @@ const Home = () => {
     if (city) {
       baseURL = baseURL + `city=${city}&`;
     }
-
     // if (city) {
     //   baseURL = baseURL + `city=${city}&`;
     // }
     console.log(baseURL);
-
     axios
       .get(baseURL)
       .then(function (response) {
@@ -43,7 +39,6 @@ const Home = () => {
         console.log(error);
       });
   };
-
   let musicianRows =
     musicians.length > 0
       ? musicians.map((musician) => (
@@ -55,10 +50,10 @@ const Home = () => {
                 alt={musician.name}
               />
             </td>
-            <td style={{ maxWidth: "50px" }}>{musician.name}</td>
-            <td style={{ maxWidth: "50px" }}>{musician.instrument}</td>
-            <td style={{ maxWidth: "50px" }}>{musician.genre}</td>
-            <td style={{ maxWidth: "50px" }}>{musician.city}</td>
+            <td style={{maxWidth: "50px"}}>{musician.name}</td>
+            <td style={{maxWidth: "50px"}}>{musician.instrument}</td>
+            <td style={{maxWidth: "50px"}}>{musician.genre}</td>
+            <td style={{maxWidth: "50px"}}>{musician.city}</td>
             <td>
               {" "}
               <Link to={`/inProfile/${musician._id}`}>
@@ -73,7 +68,6 @@ const Home = () => {
           </tr>
         ))
       : "";
-
   return (
     <>
       <div className="container" style={{ marginTop: 20 }}>
@@ -102,7 +96,6 @@ const Home = () => {
                     Connect with local musicians
                   </li>
                 </ul>
-
                 <select
                   id="instrument"
                   value={instrument}
@@ -111,13 +104,13 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="" disabled selected>
+                  <option value="">
                     Musician Instrument
                   </option>
-                  <option value="Bass Player">Bass Player</option>
-                  <option value="Guitar Player">Guitar Player</option>
-                  <option value="Drummer">Drummer</option>
-                  <option value="Lead Singer">Lead Singer</option>
+                  <option value="bass">Bass Player</option>
+                  <option value="guitar">Guitar Player</option>
+                  <option value="drums">Drummer</option>
+                  <option value="singer">Lead Singer</option>
                 </select>
               </div>
             </div>
@@ -133,14 +126,14 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="" disabled selected>
+                  <option value="">
                     Musician Genre
                   </option>
-                  <option value="Rhythm and Blues">Rhythm and Blues</option>
-                  <option value="Country Music">Country Music</option>
-                  <option value="Jazz Music">Jazz Music</option>
-                  <option value="Pop Music">Pop Music</option>
-                  <option value="Rock Music">Rock Music</option>
+                  <option value="blues">Rhythm and Blues</option>
+                  <option value="country">Country Music</option>
+                  <option value="jazz">Jazz Music</option>
+                  <option value="pop">Pop Music</option>
+                  <option value="rock">Rock Music</option>
                 </select>
               </div>
             </div>
@@ -156,7 +149,7 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="" disabled selected>
+                  <option value="">
                     City
                   </option>
                   <option value="Atlanta">Atlanta</option>
@@ -215,5 +208,4 @@ const Home = () => {
     </>
   );
 };
-
 export default Home;

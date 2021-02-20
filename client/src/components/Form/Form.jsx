@@ -251,6 +251,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="col s12">
             <select
+              placeholder="City"
               id="city"
               value={city}
               onChange={(e) => {
@@ -273,6 +274,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
         <div className="row">
           <div className="col s12">
             <select
+              placeholder="Instrument"
               id="instrument"
               value={instrument}
               onChange={(e) => {
@@ -281,7 +283,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               className="browser-default"
             >
               <option value="" disabled selected>
-                Choose Instrument
+                Type of Musician
               </option>
               <option value="Bass Player">Bass Player</option>
               <option value="Guitar Player">Guitar Player</option>
@@ -305,7 +307,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
               <option value="" disabled selected>
                 Choose a Genre
               </option>
-              <option value="Rhythm and Blues">Rhythm and Blues</option>
+              <option value="Rhythm And Blues">Rhythm and Blues</option>
               <option value="Country Music">Country Music</option>
               <option value="Jazz Music">Jazz Music</option>
               <option value="Pop Music">Pop Music</option>
