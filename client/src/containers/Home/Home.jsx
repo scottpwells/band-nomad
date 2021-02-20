@@ -1,5 +1,4 @@
-
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Home/Home.css";
@@ -50,10 +49,10 @@ const Home = () => {
                 alt={musician.name}
               />
             </td>
-            <td style={{maxWidth: "50px"}}>{musician.name}</td>
-            <td style={{maxWidth: "50px"}}>{musician.instrument}</td>
-            <td style={{maxWidth: "50px"}}>{musician.genre}</td>
-            <td style={{maxWidth: "50px"}}>{musician.city}</td>
+            <td style={{ maxWidth: "50px" }}>{musician.name}</td>
+            <td style={{ maxWidth: "50px" }}>{musician.instrument}</td>
+            <td style={{ maxWidth: "50px" }}>{musician.genre}</td>
+            <td style={{ maxWidth: "50px" }}>{musician.city}</td>
             <td>
               {" "}
               <Link to={`/inProfile/${musician._id}`}>
@@ -86,9 +85,7 @@ const Home = () => {
                   >
                     Getting Started
                   </h1>
-                  <li id="startList" style={{ listStyleType: "disc" }}>
-                    Start a band
-                  </li>
+                  <li id="startList" style={{ listStyleType: "disc" }}>Start a band</li>
                   <li id="startList" style={{ listStyleType: "disc" }}>
                     Add a new band member
                   </li>
@@ -104,7 +101,7 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="">
+                  <option value="" disabled selected>
                     Musician Instrument
                   </option>
                   <option value="bass">Bass Player</option>
@@ -126,7 +123,7 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="">
+                  <option value="" disabled selected>
                     Musician Genre
                   </option>
                   <option value="blues">Rhythm and Blues</option>
@@ -149,7 +146,7 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="">
+                  <option value="" disabled selected>
                     City
                   </option>
                   <option value="Atlanta">Atlanta</option>
