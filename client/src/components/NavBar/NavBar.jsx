@@ -40,7 +40,7 @@ const NavBar = () => {
       return (
         <NavLink
           to="/login"
-          activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+          activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
         >
           Login
         </NavLink>
@@ -49,7 +49,7 @@ const NavBar = () => {
       return (
         <a
           onClick={handleClick}
-          activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+          activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
         >
           Logout
         </a>
@@ -74,7 +74,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 to="/"
-                activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+                activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
               >
                 Home
               </NavLink>
@@ -91,9 +91,9 @@ const NavBar = () => {
             <li>
               <NavLink
                 to="/contact"
-                activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+                activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
               >
-                Contact
+                Contact Us
               </NavLink>
             </li>
             <li>
@@ -102,7 +102,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 to="/"
-                activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+                activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
               >
                 My Account
               </NavLink>
@@ -113,14 +113,14 @@ const NavBar = () => {
 
       <ul className="sidenav" id="mobile-demo">
         <li>
-          <NavLink to="/" activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
+          <NavLink to="/" activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}>
             Home
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/Create"
-            activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+            activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
           >
             Sign Up
           </NavLink>
@@ -128,7 +128,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/Contact"
-            activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+            activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
           >
             Contact
           </NavLink>
@@ -139,7 +139,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/"
-            activeStyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+            activestyle={{ backgroundColor: "rgba(0,0,0,0.1)" }}
           >
             My Account
           </NavLink>

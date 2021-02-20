@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./Components/NavBar/NavBar";
 // import Upload from "./components/Upload/Upload.jsx"
 import ContactPage from "./containers/ContactPage/ContactPage";
 import Create from "./containers/CreateProfile/CreateProfile";
@@ -7,7 +7,7 @@ import Login from "./containers/Login/Login";
 import Home from "./containers/Home/Home";
 import InProfile from "./containers/InProfile/InProfile";
 import Update from "./containers/UpdateProfile/UpdateProfile";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import { useCookies } from "react-cookie";
 import ContactRedirect from "./containers/ContactPage/ContactRedirect";
 

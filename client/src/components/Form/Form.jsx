@@ -93,7 +93,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setName(e.target.value);
               }}
             />
-            <label
+            <label className="active"
               htmlFor="name"
               style={{
                 color: "black",
@@ -117,7 +117,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setPassword(e.target.value);
               }}
             />
-            <label
+            <label className="active"
               htmlFor="password"
               style={{
                 color: "black",
@@ -141,7 +141,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setContact(e.target.value);
               }}
             />
-            <label
+            <label className="active"
               htmlFor="Contact Note"
               style={{
                 color: "black",
@@ -165,7 +165,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setPhone(e.target.value);
               }}
             />
-            <label
+            <label className="active"
               htmlFor="Phone Number"
               style={{
                 color: "black",
@@ -189,7 +189,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setEmail(e.target.value);
               }}
             />
-            <label
+            <label className="active"
               htmlFor="email"
               style={{
                 color: "black",
@@ -214,7 +214,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setImageURL(e.target.value);
               }}
             />
-            <label
+            <label className="active"
               htmlFor="imageURL"
               style={{
                 color: "black",
@@ -238,7 +238,7 @@ const Form = ({ buttonText, handleFormSubmit }) => {
                 setBio(e.target.value);
               }}
             />
-            <label
+            <label className="active"
               htmlFor="bio"
               style={{
                 color: "black",
