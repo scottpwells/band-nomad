@@ -56,10 +56,10 @@ const Home = () => {
                 alt={musician.name}
               />
             </td>
-            <td style={{ maxWidth: "50px" }}>{musician.name}</td>
-            <td style={{ maxWidth: "50px" }}>{musician.instrument}</td>
-            <td style={{ maxWidth: "50px" }}>{musician.genre}</td>
-            <td style={{ maxWidth: "50px" }}>{musician.city}</td>
+            <td style={{maxWidth: "50px"}}>{musician.name}</td>
+            <td style={{maxWidth: "50px"}}>{musician.instrument}</td>
+            <td style={{maxWidth: "50px"}}>{musician.genre}</td>
+            <td style={{maxWidth: "50px"}}>{musician.city}</td>
             <td>
               {" "}
               <Link to={`/inProfile/${musician._id}`}>
@@ -112,7 +112,7 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="" disabled selected>
+                  <option value="">
                     Musician Instrument
                   </option>
                   <option value="bass">Bass Player</option>
@@ -134,7 +134,7 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="" disabled selected>
+                  <option value="">
                     Musician Genre
                   </option>
                   <option value="blues">Rhythm and Blues</option>
@@ -157,7 +157,7 @@ const Home = () => {
                   }}
                   className="browser-default"
                 >
-                  <option value="" disabled selected>
+                  <option value="">
                     City
                   </option>
                   <option value="Atlanta">Atlanta</option>
